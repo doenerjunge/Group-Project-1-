@@ -1,10 +1,11 @@
 
-public class Main 
-{
-  public static void main(String[] args)
-  {
-	  int g = 0;
-	  char c = 'a';
-	  String s = "hello";
-  }
+
+public class Main {
+	public static void main(String[] args)
+	{
+		System.out.println("Hello");
+		System.out.println("yeet");
+		System.out.println("yeet");
+	}
+
 }
