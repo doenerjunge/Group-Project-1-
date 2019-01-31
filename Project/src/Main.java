@@ -1,4 +1,4 @@
 
 public class Main {
-errer
+system.out.println("Hello");
 }
