@@ -8,5 +8,6 @@ public class Main {
 		{
 			System.out.print("yes ");
 		}
+		int j = 3;
 	}
 }
