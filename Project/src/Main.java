@@ -5,5 +5,6 @@ public class Main
   {
 	  int g = 0;
 	  char c = 'a';
+	  String s = "hello";
   }
 }
