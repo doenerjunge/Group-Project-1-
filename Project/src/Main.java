@@ -7,5 +7,7 @@ public class Main
 		System.out.println("skeet");
 		System.out.println("EYYYYY");
 		System.out.println("wow");
+		User u = new User("Bob");
+		System.out.println(u.getName());
 	}
 }
