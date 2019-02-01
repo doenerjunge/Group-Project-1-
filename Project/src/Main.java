@@ -2,12 +2,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Hello");
-		System.out.println("yeet");
-		System.out.println("skeet");
-		System.out.println("EYYYYY");
-		System.out.println("wow");
-		User u = new User("Bob");
-		System.out.println(u.getName());
+		Pokemon p = new Pikachu();
+		p.attack();
 	}
 }
