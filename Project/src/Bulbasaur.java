@@ -28,12 +28,12 @@ public class Bulbasaur extends Pokemon
 				return attck;
 				break;
 			}
-			else if(attck.equals("Vine Whip"));
+			else if(attck.equals("Vine Whip")); 
 			{
 				return attck;
 				break;
 			}
-			else
+			else 
 			{
 				System.out.println("This is not a valid attack. Try Again."); 
 			}
@@ -42,7 +42,7 @@ public class Bulbasaur extends Pokemon
 	
 	public void attack(Pokemon other)
 	{
-		String attck getAtk();
+		String attck = getAtk();
 		if(attck.equals("Tackle"));
 		{
 			System.out.println("Bulbasaur attacked " + other.getName() + " with Tackle.");
