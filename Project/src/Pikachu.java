@@ -1,8 +1,12 @@
+import java.util.*;
+
 public class Pikachu extends Pokemon
 {
+	HashMap<String, Integer> attacks;
 	public Pikachu()
 	{
 		super("Pikachu", "Electric", 40);
+		attacks = new HashMap<String, Integer>();
 	}
 	
 	public void attack(Pokemon other)

@@ -1,4 +1,4 @@
-
+import java.util.*;
 public abstract class Pokemon 
 {
 	public String name;
