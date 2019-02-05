@@ -6,6 +6,10 @@ public class Pokemon
 	public static final String BULBASAUR_TYPE = "Grass";
 	public static final HashMap<String, Integer> BULBASAUR_ATTACKS = new HashMap<String, Integer>();
 	
+	public static final int IDK_HP = 2000;
+	public static final String IDK_TYPE = "???";
+	public static final HashMap<String, Integer> IDK_ATTACKS = new HashMap<String, Integer>();
+	
 	
 	private String name;
 	private String type;
@@ -17,6 +21,7 @@ public class Pokemon
 		BULBASAUR_ATTACKS.put("Tackle", 35);
 		BULBASAUR_ATTACKS.put("Growl", 40);
 		BULBASAUR_ATTACKS.put("Vine Whip", 25);
+		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
 	}
 	
 	public Pokemon(String name)
@@ -33,6 +38,10 @@ public class Pokemon
 		{
 			type = BULBASAUR_TYPE;
 		}
+		else
+		{
+			type = IDK_TYPE;
+		}
 		return type;
 	}
 	
@@ -42,6 +51,10 @@ public class Pokemon
 		if(name.equals("Bulbasaur"))
 		{
 			hp = BULBASAUR_HP;
+		}
+		else
+		{
+			hp = IDK_HP;
 		}
 		return hp;
 	}
