@@ -1,20 +1,50 @@
-import java.util.Scanner;
+import java.util.*;
 
-public abstract class Pokemon 
+public class Pokemon 
 {
+	public static final int BULBASAUR_HP = 45;
+	public static final String BULBASAUR_TYPE = "Grass";
+	public static final HashMap<String, Integer> BULBASAUR_ATTACKS = new HashMap<String, Integer>();
+	
+	
 	private String name;
 	private String type;
 	private int health;
 	private static final Scanner sc = new Scanner(System.in);
 	
-	public Pokemon(String name, String type, int health)
+	public Pokemon()
 	{
-		this.name = name;
-		this.type = type;
-		this.health = health;
+		BULBASAUR_ATTACKS.put("Tackle", 35);
+		BULBASAUR_ATTACKS.put("Growl", 40);
+		BULBASAUR_ATTACKS.put("Vine Whip", 25);
 	}
 	
-	public abstract void attack(Pokemon other);
+	public Pokemon(String name)
+	{
+		this.name = name;
+		this.type = findType(name);
+		this.health = findHP(name);
+	}
+	
+	public String findType(String name)
+	{
+		String type = "";
+		if(name.equals("Bulbasaur"))
+		{
+			type = BULBASAUR_TYPE;
+		}
+		return type;
+	}
+	
+	public int findHP(String name)
+	{
+		int hp = 0;
+		if(name.equals("Bulbasaur"))
+		{
+			hp = BULBASAUR_HP;
+		}
+		return hp;
+	}
 	
 	public String getName()
 	{
