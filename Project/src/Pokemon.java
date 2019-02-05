@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public abstract class Pokemon 
 {
-	public String name;
-	public String type;
-	public int health;
+	private String name;
+	private String type;
+	private int health;
 	private static final Scanner sc = new Scanner(System.in);
 	
 	public Pokemon(String name, String type, int health)
