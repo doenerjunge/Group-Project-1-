@@ -2,6 +2,10 @@ import java.util.*;
 
 public class Pokemon 
 {
+	public static final int STRONG = 1;
+	public static final int UNAFFECTED = 0;
+	public static final int WEAK = -1;
+	
 	public static final int BULBASAUR_HP = 45;
 	public static final String BULBASAUR_TYPE = "Grass";
 	public static final HashMap<String, Integer> BULBASAUR_ATTACKS = new HashMap<String, Integer>();
@@ -25,10 +29,10 @@ public class Pokemon
 		BULBASAUR_ATTACKS.put("Tackle", 35);
 		BULBASAUR_ATTACKS.put("Growl", 40);
 		BULBASAUR_ATTACKS.put("Vine Whip", 25);
-		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
 		PIKACHU_ATTACKS.put("Thunderbolt", 40);
 		PIKACHU_ATTACKS.put("Growl", 40);
 		PIKACHU_ATTACKS.put("Tail Whip", 25);
+		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
 	}
 	
 	public Pokemon(String name)
@@ -89,48 +93,84 @@ public class Pokemon
 		return health;
 	}
 	
-	public String readLine(String prompt){
+	public String getAttack()
+	{
+		return "";
+	}
+	
+	public void attack()
+	{
+		
+	}
+	
+	public int typeEffect()
+	{
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public String readLine(String prompt)
+	{
         System.out.print(prompt);
         return sc.nextLine();
     }
 
-    public boolean readBoolean(String prompt){
+    public boolean readBoolean(String prompt)
+    {
 
-        while(true){
+        while(true)
+        {
             String input = readLine(prompt);
 
-            if(input.equalsIgnoreCase("true")){
+            if(input.equalsIgnoreCase("true"))
+            {
                 return true;
             }
 
-            if(input.equalsIgnoreCase("false")){
+            if(input.equalsIgnoreCase("false"))
+            {
                 return false;
             }
         }
     }
 
-    public double readDouble(String prompt){
+    public double readDouble(String prompt)
+    {
 
-        while(true){
+        while(true)
+        {
             String input = readLine(prompt);
-            try {
+            try 
+            {
                 double n = Double.valueOf(input).doubleValue();
                 return n;
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e)
+            {
 
             }
         }
     }
 
     // Allow the user to get an integer.
-    public int readInt(String prompt){
+    public int readInt(String prompt)
+    {
 
-        while(true){
+        while(true)
+        {
             String input = readLine(prompt);
-            try {
+            try 
+            {
                 int n = Integer.parseInt(input);
                 return n;
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e)
+            {
 
             }
         }
