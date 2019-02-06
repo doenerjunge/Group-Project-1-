@@ -14,21 +14,97 @@ public class Pokemon
 	public static final String IVYSAUR_TYPE = "Grass";
 	public static final HashMap<String, Integer> IVYSAUR_ATTACKS = new HashMap<String, Integer>();
 	
+	public static final int VENUSAUR_HP = 80;
+	public static final String VENUSAUR_TYPE = "Grass";
+	public static final HashMap<String, Integer> VENUSAUR_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int CHARMANDER_HP = 39;
+	public static final String CHARMANDAR_TYPE = "Fire";
+	public static final HashMap<String, Integer> CHARMANDAR_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int CHARMELEON_HP = 58;
+	public static final String CHARMELEON_TYPE = "Fire";
+	public static final HashMap<String, Integer> CHARMELEON_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int CHARIZARD_HP = 78;
+	public static final String CHARIZARD_TYPE = "Fire";
+	public static final HashMap<String, Integer> CHARIZARD_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int SQUIRTLE_HP = 44;
+	public static final String SQUIRTLE_TYPE = "Water";
+	public static final HashMap<String, Integer> SQUIRTLE_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int WARTORTLE_HP = 59;
+	public static final String WARTORTLE_TYPE = "Water";
+	public static final HashMap<String, Integer> WARTORTLE_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int BLASTOISE_HP = 79;
+	public static final String BLASTOISE_TYPE = "Water";
+	public static final HashMap<String, Integer> BLASTOISE_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int PIDGEY_HP = 40;
+	public static final String PIDGEY_TYPE = "Normal";
+	public static final HashMap<String, Integer> PIDGEY_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int PIDGEOTTO_HP = 63;
+	public static final String PIDGEOTTO_TYPE = "Normal";
+	public static final HashMap<String, Integer> PIDGEOTTO_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int PIDGEOT_HP = 83;
+	public static final String PIDGEOT_TYPE = "Normal";
+	public static final HashMap<String, Integer> PIDGEOT_ATTACKS = new HashMap<String, Integer>();
+	
 	public static final int PIKACHU_HP = 35;
 	public static final String PIKACHU_TYPE = "Electric";
 	public static final HashMap<String, Integer> PIKACHU_ATTACKS = new HashMap<String, Integer>();
 	
-	public static final int IDK_HP = 2000;
-	public static final String IDK_TYPE = "???";
-	public static final HashMap<String, Integer> IDK_ATTACKS = new HashMap<String, Integer>();
+	public static final int RAICHU_HP = 60;
+	public static final String RAICHU_TYPE = "Electric";
+	public static final HashMap<String, Integer> RAICHU_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int SANDSHREW_HP = 50;
+	public static final String SANDSHREW_TYPE = "Ground";
+	public static final HashMap<String, Integer> SANDSHREW_ATtACKS = new HashMap<String, Integer>();
+	
+	public static final int SANDSLASH_HP = 75;
+	public static final String SANDSLASH_TYPE = "Ground";
+	public static final HashMap<String, Integer> SANDSLASH_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int MACHOP_HP = 70;
+	public static final String MACHOP_TYPE = "Fighting";
+	public static final HashMap<String, Integer> MACHOP_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int MACHOKE_HP = 80;
+	public static final String MACHOKE_TYPE = "Fighting";
+	public static final HashMap<String, Integer> MACHOKE_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int MACHAMP_HP = 90;
+	public static final String MACHAMP_TYPE = "Fighting";
+	public static final HashMap<String, Integer> MACHAMP_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int EEVEE_HP = 55;
+	public static final String EEVEE_TYPE = "Normal";
+	public static final HashMap<String, Integer> EEVEE_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int VAPOREON_HP = 130;
+	public static final String VAPOREON_TYPE = "Water";
+	public static final HashMap<String, Integer> VAPOREON_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int JOLTEON_HP = 65;
+	public static final String JOLTEON_TYPE = "Electric";
+	public static final HashMap<String, Integer> JOLTEON_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int FLAREON_HP = 65;
+	public static final String FLAREON_TYPE = "Fire";
+	public static final HashMap<String, Integer> FLAREON_ATTACKS = new HashMap<String, Integer>();
 	
 	public static final int MEW_HP = 100;
 	public static final String MEW_TYPE = "Psychic";
 	public static final HashMap<String, Integer> MEW_ATTACKS = new HashMap<String, Integer>();
 	
-	public static final int VENUSAUR_HP = 80;
-	public static final String VENUSAUR_TYPE = "Grass";
-	public static final HashMap<String, Integer> VENUSAUR_ATTACKS = new HashMap<String, Integer>();
+	public static final int IDK_HP = 2000;
+	public static final String IDK_TYPE = "Error";
+	public static final HashMap<String, Integer> IDK_ATTACKS = new HashMap<String, Integer>();
 	
 	private String name;
 	private String type;
@@ -37,17 +113,9 @@ public class Pokemon
 	
 	public Pokemon()
 	{
-		BULBASAUR_ATTACKS.put("Tackle", 35);
-		BULBASAUR_ATTACKS.put("Growl", 40);
-		BULBASAUR_ATTACKS.put("Vine Whip", 25);
-		PIKACHU_ATTACKS.put("Thunderbolt", 40);
-		PIKACHU_ATTACKS.put("Growl", 40);
-		PIKACHU_ATTACKS.put("Tail Whip", 25);
-		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
 		MEW_ATTACKS.put("Pound", 40);
 		MEW_ATTACKS.put("Confusion", 50);
-		
-		
+		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
 	}
 	
 	public Pokemon(String name)
