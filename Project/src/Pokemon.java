@@ -10,6 +10,10 @@ public class Pokemon
 	public static final String BULBASAUR_TYPE = "Grass";
 	public static final HashMap<String, Integer> BULBASAUR_ATTACKS = new HashMap<String, Integer>();
 	
+	public static final int IVYSAUR_HP = 60;
+	public static final String IVYSAUR_TYPE = "Grass";
+	public static final HashMap<String, Integer> IVYSAUR_ATTACKS = new HashMap<String, Integer>();
+	
 	public static final int PIKACHU_HP = 35;
 	public static final String PIKACHU_TYPE = "Electric";
 	public static final HashMap<String, Integer> PIKACHU_ATTACKS = new HashMap<String, Integer>();
@@ -18,6 +22,13 @@ public class Pokemon
 	public static final String IDK_TYPE = "???";
 	public static final HashMap<String, Integer> IDK_ATTACKS = new HashMap<String, Integer>();
 	
+	public static final int MEW_HP = 100;
+	public static final String MEW_TYPE = "Psychic";
+	public static final HashMap<String, Integer> MEW_ATTACKS = new HashMap<String, Integer>();
+	
+	public static final int VENUSAUR_HP = 80;
+	public static final String VENUSAUR_TYPE = "Grass";
+	public static final HashMap<String, Integer> VENUSAUR_ATTACKS = new HashMap<String, Integer>();
 	
 	private String name;
 	private String type;
@@ -33,6 +44,10 @@ public class Pokemon
 		PIKACHU_ATTACKS.put("Growl", 40);
 		PIKACHU_ATTACKS.put("Tail Whip", 25);
 		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
+		MEW_ATTACKS.put("Pound", 40);
+		MEW_ATTACKS.put("Confusion", 50);
+		
+		
 	}
 	
 	public Pokemon(String name)
@@ -45,13 +60,17 @@ public class Pokemon
 	public String findType(String name)
 	{
 		String type = "";
-		if(name.equals("Bulbasaur"))
+		if(name.equals("Bulbasaur") || name.equals("Ivysaur") || name.equals("Venusaur"))
 		{
 			type = BULBASAUR_TYPE;
 		}
 		else if(name.equals("Pikachu"))
 		{
 			type = PIKACHU_TYPE;
+		}
+		else if(name.equals("Mew"))
+		{
+			type = MEW_TYPE;
 		}
 		else
 		{
@@ -70,6 +89,18 @@ public class Pokemon
 		else if(name.equals("Pikachu")) 
 		{
 			hp = PIKACHU_HP;
+		}
+		else if(name.equals("Mew"))
+		{
+			hp = MEW_HP;
+		}
+		else if(name.equals("Ivysaur")) 
+		{
+			hp = IVYSAUR_HP;
+		}
+		else if(name.equals("Venusaur")) 
+		{
+			hp = VENUSAUR_HP;
 		}
 		else
 		{
