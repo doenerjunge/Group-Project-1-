@@ -64,7 +64,7 @@ public class Pokemon
 	
 	public static final int SANDSHREW_HP = 50;
 	public static final String SANDSHREW_TYPE = "Ground";
-	public static final HashMap<String, Integer> SANDSHREW_ATtACKS = new HashMap<String, Integer>();
+	public static final HashMap<String, Integer> SANDSHREW_ATTACKS = new HashMap<String, Integer>();
 	
 	public static final int SANDSLASH_HP = 75;
 	public static final String SANDSLASH_TYPE = "Ground";
@@ -113,6 +113,37 @@ public class Pokemon
 	
 	public Pokemon()
 	{
+		PIDGEY_ATTACKS.put("Tackle", 40);
+		PIDGEY_ATTACKS.put("Gust", 45);
+		PIDGEOTTO_ATTACKS.put("Gust", 40);
+		PIDGEOTTO_ATTACKS.put("Quick Attack", 40);
+		PIDGEOT_ATTACKS.put("Heatwave", 95);
+		PIDGEOT_ATTACKS.put("Gust", 40);
+		PIDGEOT_ATTACKS.put("Quick Attack", 40);
+		PIKACHU_ATTACKS.put("Thunder Bolt", 40);
+		PIKACHU_ATTACKS.put("Tackle", 30);
+		RAICHU_ATTACKS.put("Thunder Punch", 75);
+		RAICHU_ATTACKS.put("Fake Out", 40);
+		RAICHU_ATTACKS.put("Thunder Bolt", 40);
+		SANDSHREW_ATTACKS.put("Scratch", 40);
+		SANDSHREW_ATTACKS.put("Tackle", 30);
+		SANDSLASH_ATTACKS.put("Scratch", 40);
+		SANDSLASH_ATTACKS.put("Poison Sting", 15);
+		SANDSLASH_ATTACKS.put("Tackle", 35);
+		MACHOP_ATTACKS.put("Low Kick", 40);
+		MACHOP_ATTACKS.put("Tackle", 30);
+		MACHOKE_ATTACKS.put("Low Kick", 80);
+		MACHOKE_ATTACKS.put("Tackle", 60);
+		MACHAMP_ATTACKS.put("Strength", 80);
+		MACHAMP_ATTACKS.put("Low Kick", 100);
+		//MACHAMP_ATTACKS.put("Counter", lastDamageDone());
+		EEVEE_ATTACKS.put("Tackle", 40);
+		VAPOREON_ATTACKS.put("Water Gun", 40);
+		VAPOREON_ATTACKS.put("Tackle", 40);
+		JOLTEON_ATTACKS.put("Thundershock", 40);
+		JOLTEON_ATTACKS.put("Tackle", 40);
+		FLAREON_ATTACKS.put("Ember", 40);
+		FLAREON_ATTACKS.put("Tackle", 40);
 		MEW_ATTACKS.put("Pound", 40);
 		MEW_ATTACKS.put("Confusion", 50);
 		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
