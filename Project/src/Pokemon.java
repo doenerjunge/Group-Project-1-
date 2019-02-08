@@ -174,14 +174,6 @@ public class Pokemon
 		{
 			hp = BULBASAUR_HP;
 		}
-		else if(name.equals("Pikachu")) 
-		{
-			hp = PIKACHU_HP;
-		}
-		else if(name.equals("Mew"))
-		{
-			hp = MEW_HP;
-		}
 		else if(name.equals("Ivysaur")) 
 		{
 			hp = IVYSAUR_HP;
@@ -189,6 +181,90 @@ public class Pokemon
 		else if(name.equals("Venusaur")) 
 		{
 			hp = VENUSAUR_HP;
+		}
+		else if(name.equals("Charmander")) 
+		{
+			hp = CHARMANDER_HP;
+		}
+		else if(name.equals("Charmeleon")) 
+		{
+			hp = CHARMELEON_HP;
+		}
+		else if(name.equals("Charizard")) 
+		{
+			hp = CHARIZARD_HP;
+		}
+		else if(name.equals("Squirtle"))
+		{
+			hp = SQUIRTLE_HP;
+		}
+		else if(name.equals("Wartotle"))
+		{
+			hp = WARTORTLE_HP;
+		}
+		else if(name.equals("Blastoise"))
+		{
+			hp = BLASTOISE_HP;
+		}
+		else if(name.equals("Pidgey"))
+		{
+			hp = PIDGEY_HP;
+		}
+		else if(name.equals("Pidgeotto"))
+		{
+			hp = PIDGEOTTO_HP;
+		}
+		else if(name.equals("Pidgeot"))
+		{
+			hp = PIDGEOT_HP;
+		}
+		else if(name.equals("Pikachu"))
+		{
+			hp = PIKACHU_HP;
+		}
+		else if(name.equals("Raichu"))
+		{
+			hp = RAICHU_HP;
+		}
+		else if(name.equals("Sandshrew"))
+		{
+			hp = SANDSHREW_HP;
+		}
+		else if(name.equals("Sandslash"))
+		{
+			hp = SANDSLASH_HP;
+		}
+		else if(name.equals("Machop"))
+		{
+			hp = MACHOP_HP;
+		}
+		else if(name.equals("Machoke"))
+		{
+			hp = MACHOKE_HP;
+		}
+		else if(name.equals("Machamp"))
+		{
+			hp = MACHAMP_HP;
+		}
+		else if(name.equals("Eevee"))
+		{
+			hp = EEVEE_HP;
+		}
+		else if(name.equals("Vaporeon"))
+		{
+			hp = VAPOREON_HP;
+		}
+		else if(name.equals("Jolteon"))
+		{
+			hp = JOLTEON_HP;
+		}
+		else if(name.equals("Flareon"))
+		{
+			hp = FLAREON_HP;
+		}
+		else if(name.equals("Mew"))
+		{
+			hp = MEW_HP;
 		}
 		else
 		{
