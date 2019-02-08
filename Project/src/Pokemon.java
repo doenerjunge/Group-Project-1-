@@ -132,9 +132,29 @@ public class Pokemon
 		{
 			type = BULBASAUR_TYPE;
 		}
-		else if(name.equals("Pikachu"))
+		else if(name.equals("Charmandar") || name.equals("Charmeleon") || name.equals("Charizard") || name.equals("Flareon"))
+		{
+			type = CHARMANDAR_TYPE;
+		}
+		else if(name.equals("Squirtle") || name.equals("Wartortle") || name.equals("Blastoise") || name.equals("Vaporeon"))
+		{
+			type = SQUIRTLE_TYPE;
+		}
+		else if(name.equals("Pidgey") || name.equals("Pidgeotto") || name.equals("Pidgeot") || name.equals("Eevee"))
+		{
+			type = PIDGEY_TYPE;
+		}
+		else if(name.equals("Pikachu") || name.equals("Raichu") || name.equals("Jolteon"))
 		{
 			type = PIKACHU_TYPE;
+		}
+		else if(name.equals("Sandshrew") || name.equals("Sandslash"))
+		{
+			type = SANDSHREW_TYPE;
+		}
+		else if(name.equals("Machop") || name.equals("Machoke") || name.equals("Machamp"))
+		{
+			type = MACHOP_TYPE;
 		}
 		else if(name.equals("Mew"))
 		{
