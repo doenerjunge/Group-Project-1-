@@ -19,8 +19,8 @@ public class Pokemon
 	public static final HashMap<String, Integer> VENUSAUR_ATTACKS = new HashMap<String, Integer>();
 	
 	public static final int CHARMANDER_HP = 39;
-	public static final String CHARMANDAR_TYPE = "Fire";
-	public static final HashMap<String, Integer> CHARMANDAR_ATTACKS = new HashMap<String, Integer>();
+	public static final String CHARMANDER_TYPE = "Fire";
+	public static final HashMap<String, Integer> CHARMANDER_ATTACKS = new HashMap<String, Integer>();
 	
 	public static final int CHARMELEON_HP = 58;
 	public static final String CHARMELEON_TYPE = "Fire";
@@ -163,9 +163,9 @@ public class Pokemon
 		{
 			type = BULBASAUR_TYPE;
 		}
-		else if(name.equals("Charmandar") || name.equals("Charmeleon") || name.equals("Charizard") || name.equals("Flareon"))
+		else if(name.equals("Charmander") || name.equals("Charmeleon") || name.equals("Charizard") || name.equals("Flareon"))
 		{
-			type = CHARMANDAR_TYPE;
+			type = CHARMANDER_TYPE;
 		}
 		else if(name.equals("Squirtle") || name.equals("Wartortle") || name.equals("Blastoise") || name.equals("Vaporeon"))
 		{
