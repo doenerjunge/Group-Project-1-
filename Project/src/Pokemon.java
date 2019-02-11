@@ -198,6 +198,11 @@ public class Pokemon
 		return type;
 	}
 	
+	public String getType()
+	{
+		return type;
+	}
+	
 	public int findHP(String name)
 	{
 		int hp = 0;
