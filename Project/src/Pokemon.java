@@ -466,14 +466,27 @@ public class Pokemon
         }
 	}
 	
+	public String getAttacks()
+	{
+		String out = "";
+		for(String atkNam: attacks.keySet())
+        {
+            int pow = attacks.get(atkNam);
+            out += atkNam + ", ";
+        }
+		return out;
+	}
+	
 	public String whichAttack()
 	{
+		String userInput = readLine("Choose Your Attack: 1, 2, or 3: " + getAttacks());
 		
-		return "";
+		return userInput;
 	}
 	
 	public void attack()
 	{
+		String choice = whichAttack();
 		
 	}
 	
