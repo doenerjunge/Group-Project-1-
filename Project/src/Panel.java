@@ -7,4 +7,3 @@ public class Panel extends JPanel
 		super();
 	}
 }
- 

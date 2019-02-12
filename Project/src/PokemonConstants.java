@@ -1,14 +1,14 @@
 
 public enum PokemonConstants
 {
-	BULBASUAR(10, 5);
+	BULBASAUR(10, 5);
 	
 	private Integer hp, dmg;
 	private Object[] fieldList;
 	private PokemonConstants(Integer hp, Integer dmg)
 	{
-		this.hp = hp;
-		this.dmg = dmg;
+		this.setHp(hp);
+		this.setDmg(dmg);
 		
 		fieldList = new Object[2];
 		fieldList[0] = hp;
@@ -33,5 +33,21 @@ public enum PokemonConstants
 			}
 		}
 		return out;
+	}
+
+	public Integer getDmg() {
+		return dmg;
+	}
+
+	public void setDmg(Integer dmg) {
+		this.dmg = dmg;
+	}
+
+	public Integer getHp() {
+		return hp;
+	}
+
+	public void setHp(Integer hp) {
+		this.hp = hp;
 	}
 }
