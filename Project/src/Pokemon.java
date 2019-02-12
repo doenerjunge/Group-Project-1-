@@ -113,6 +113,31 @@ public class Pokemon
 	
 	public Pokemon()
 	{
+		BULBASAUR_ATTACKS.put("Tackle", 40);
+		BULBASAUR_ATTACKS.put("Vine Whip", 45);
+		IVYSAUR_ATTACKS.put("Tackle", 40);
+		IVYSAUR_ATTACKS.put("Vine Whip", 45);
+		IVYSAUR_ATTACKS.put("Power Whip", 50);
+		VENUSAUR_ATTACKS.put("Petal Dance", 120);
+		VENUSAUR_ATTACKS.put("Power Whip", 120);
+		VENUSAUR_ATTACKS.put("Tackle", 40);
+		CHARMANDER_ATTACKS.put("Scratch", 40);
+		CHARMANDER_ATTACKS.put("Ember", 40);
+		CHARMANDER_ATTACKS.put("Fire Spin", 35);
+		CHARMELEON_ATTACKS.put("Scratch", 40);
+		CHARMELEON_ATTACKS.put("Fury Swipes", 50);
+		CHARMELEON_ATTACKS.put("Slash", 70);
+		CHARIZARD_ATTACKS.put("Wing Attack", 60);
+		CHARIZARD_ATTACKS.put("Crunch", 80);
+		CHARIZARD_ATTACKS.put("Heatwave", 95);
+		SQUIRTLE_ATTACKS.put("Bubble", 40);
+		SQUIRTLE_ATTACKS.put("Tackle", 40);
+		WARTORTLE_ATTACKS.put("Water Gun", 50);
+		WARTORTLE_ATTACKS.put("Bubble", 45);
+		WARTORTLE_ATTACKS.put("Tackle", 40);
+		BLASTOISE_ATTACKS.put("Water Gun", 40);
+		BLASTOISE_ATTACKS.put("Flash Cannon", 80);
+		BLASTOISE_ATTACKS.put("Aqua Jet", 40);
 		PIDGEY_ATTACKS.put("Tackle", 40);
 		PIDGEY_ATTACKS.put("Gust", 45);
 		PIDGEOTTO_ATTACKS.put("Gust", 40);
