@@ -109,6 +109,7 @@ public class Pokemon
 	private String name;
 	private String type;
 	private int health;
+	private HashMap<String, Integer> attacks;
 	private static final Scanner sc = new Scanner(System.in);
 	
 	public Pokemon()
@@ -179,6 +180,7 @@ public class Pokemon
 		this.name = name;
 		this.type = findType(name);
 		this.health = findHP(name);
+		this.attacks = findAttacks(name);
 	}
 	
 	public String findType(String name)
@@ -334,6 +336,112 @@ public class Pokemon
 		return hp;
 	}
 	
+	public HashMap<String, Integer> findAttacks(String name)
+	{
+		HashMap<String, Integer> output;
+		if(name.equals("Bulbasaur"))
+		{
+			output = BULBASAUR_ATTACKS;
+		}
+		else if(name.equals("Ivysaur")) 
+		{
+			output = IVYSAUR_ATTACKS;
+		}
+		else if(name.equals("Venusaur")) 
+		{
+			output = VENUSAUR_ATTACKS;
+		}
+		else if(name.equals("Charmander")) 
+		{
+			output = CHARMANDER_ATTACKS;
+		}
+		else if(name.equals("Charmeleon")) 
+		{
+			output = CHARMELEON_ATTACKS;
+		}
+		else if(name.equals("Charizard")) 
+		{
+			output = CHARIZARD_ATTACKS;
+		}
+		else if(name.equals("Squirtle"))
+		{
+			output = SQUIRTLE_ATTACKS;
+		}
+		else if(name.equals("Wartotle"))
+		{
+			output = WARTORTLE_ATTACKS;
+		}
+		else if(name.equals("Blastoise"))
+		{
+			output = BLASTOISE_ATTACKS;
+		}
+		else if(name.equals("Pidgey"))
+		{
+			output = PIDGEY_ATTACKS;
+		}
+		else if(name.equals("Pidgeotto"))
+		{
+			output = PIDGEOTTO_ATTACKS;
+		}
+		else if(name.equals("Pidgeot"))
+		{
+			output = PIDGEOT_ATTACKS;
+		}
+		else if(name.equals("Pikachu"))
+		{
+			output = PIKACHU_ATTACKS;
+		}
+		else if(name.equals("Raichu"))
+		{
+			output = PIKACHU_ATTACKS;
+		}
+		else if(name.equals("Sandshrew"))
+		{
+			output = SANDSHREW_ATTACKS;
+		}
+		else if(name.equals("Sandslash"))
+		{
+			output = SANDSLASH_ATTACKS;
+		}
+		else if(name.equals("Machop"))
+		{
+			output = MACHOP_ATTACKS;
+		}
+		else if(name.equals("Machoke"))
+		{
+			output = MACHOKE_ATTACKS;
+		}
+		else if(name.equals("Machamp"))
+		{
+			output = MACHAMP_ATTACKS;
+		}
+		else if(name.equals("Eevee"))
+		{
+			output = EEVEE_ATTACKS;
+		}
+		else if(name.equals("Vaporeon"))
+		{
+			output = VAPOREON_ATTACKS;
+		}
+		else if(name.equals("Jolteon"))
+		{
+			output = JOLTEON_ATTACKS;
+		}
+		else if(name.equals("Flareon"))
+		{
+			output = FLAREON_ATTACKS;
+		}
+		else if(name.equals("Mew"))
+		{
+			output = MEW_ATTACKS;
+		}
+		else
+		{
+			output = IDK_ATTACKS;
+		}
+		return output;
+	}
+	
 	public String getName()
 	{
 		return this.name;
@@ -351,6 +459,7 @@ public class Pokemon
 	
 	public String getAttack()
 	{
+		
 		return "";
 	}
 	
