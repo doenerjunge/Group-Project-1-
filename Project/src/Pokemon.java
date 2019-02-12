@@ -457,7 +457,16 @@ public class Pokemon
 		return health;
 	}
 	
-	public String getAttack()
+	public void printAttacks()
+	{
+		for(String atkNam: attacks.keySet())
+        {
+            int pow = attacks.get(atkNam);
+            System.out.println(atkNam + ": " + pow);
+        }
+	}
+	
+	public String whichAttack()
 	{
 		
 		return "";
