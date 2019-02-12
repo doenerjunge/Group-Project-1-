@@ -1,9 +1,28 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+
 public class Main 
 {
+	private JFrame Screen;
+
 	public static void main(String[] args)
 	{
+		//initframe();
 		Pokemon unusable = new Pokemon();
 		Pokemon p = new Pokemon("Pikachu");
 		System.out.println(p.getType());
 	}
+	
+	public void initframe()
+	{
+		Screen = new JFrame();
+		Screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Screen.setLayout(new BorderLayout());
+		Screen.setVisible(true);
+		Screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		Screen.pack();
+		Screen.repaint();
+	}
+	
 }
