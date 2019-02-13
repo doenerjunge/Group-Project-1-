@@ -466,14 +466,70 @@ public class Pokemon
         }
 	}
 	
+	public String getAttacks()
+	{
+		String out = "";
+		for(String atkNam: attacks.keySet())
+        {
+            int pow = attacks.get(atkNam);
+            out += atkNam + ", ";
+        }
+		return out;
+	}
+	
 	public String whichAttack()
 	{
-		
-		return "";
+		String output = "";
+		while(true)
+		{
+			String userInput = readLine("Choose Your Attack: 1, 2, or 3: " + getAttacks());
+			if(userInput.equals("1"))
+			{
+				if(attacks.size() >= 1)
+				{
+					output = userInput;
+					break;
+				}
+				else
+				{
+					System.out.println("Please type a compatible number");
+				}
+			}
+			else if(userInput.equals("2"))
+			{
+				if(attacks.size() >= 2)
+				{
+					output = userInput;
+					break;
+				}
+				else
+				{
+					System.out.println("Please type a compatible number");
+				}
+			}
+			else if(userInput.equals("3"))
+			{
+				if(attacks.size() >= 3)
+				{
+					output = userInput;
+					break;
+				}
+				else
+				{
+					System.out.println("Please type a compatible number");
+				}
+			}
+			else
+			{
+				System.out.println("Please type a compatible number");
+			}
+		}
+		return output;
 	}
 	
 	public void attack()
 	{
+		String choice = whichAttack();
 		
 	}
 	
