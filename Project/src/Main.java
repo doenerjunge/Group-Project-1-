@@ -26,7 +26,7 @@ public class Main
 		Screen.repaint();
 		initpanel();
 	}
-	
+	 
 	public void initpanel()
 	{
 		pnl = new Panel();
