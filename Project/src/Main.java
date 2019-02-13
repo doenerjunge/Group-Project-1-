@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 public class Main 
 {
 	private JFrame Screen;
+	private Panel pnl;
 
 	public static void main(String[] args)
 	{
@@ -21,6 +22,15 @@ public class Main
 		Screen.setLayout(new BorderLayout());
 		Screen.setVisible(true);
 		Screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		Screen.pack();
+		Screen.repaint();
+		initpanel();
+	}
+	
+	public void initpanel()
+	{
+		pnl = new Panel();
+		Screen.add(pnl);
 		Screen.pack();
 		Screen.repaint();
 	}
