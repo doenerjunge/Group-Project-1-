@@ -30,6 +30,7 @@ public class Main
 	public void initpanel()
 	{
 		pnl = new Panel();
+		pnl.setLayout(new BorderLayout());
 		Screen.add(pnl);
 		Screen.pack();
 		Screen.repaint();
