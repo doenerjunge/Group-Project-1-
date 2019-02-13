@@ -1,12 +1,16 @@
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-public class Main 
+public class Main
 {
 	private JFrame Screen;
 	private Panel pnl;
-
+	private JLabel lbl;
+	ImageIcon icon = new ImageIcon("c:/users/jmhbyeu/Pictures/GreenHill.jpg", "beautyIncarnate");
+	
 	public static void main(String[] args)
 	{
 		new Main();
@@ -30,8 +34,17 @@ public class Main
 		Screen.pack();
 		Screen.repaint();
 		initpanel();
+		initlabel();
 	}
 	 
+	private void initlabel() 
+	{
+		lbl = new JLabel(icon);
+		Screen.add(lbl);
+		Screen.pack();
+		Screen.repaint();
+	}
+
 	public void initpanel()
 	{
 		pnl = new Panel();
