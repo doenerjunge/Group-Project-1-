@@ -9,6 +9,11 @@ public class Main
 
 	public static void main(String[] args)
 	{
+		new Main();
+	}
+	
+	public Main()
+	{
 		//initframe();
 		Pokemon unusable = new Pokemon();
 		Pokemon p = new Pokemon("Pikachu");
