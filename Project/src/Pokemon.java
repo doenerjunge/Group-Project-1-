@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Pokemon 
 {
-	public static final int STRONG = 1;
+	public static final int STRONG = 20;
 	public static final int UNAFFECTED = 0;
-	public static final int WEAK = -1;
+	public static final int WEAK = -20;
 	
 	public static final int BULBASAUR_HP = 45;
 	public static final String BULBASAUR_TYPE = "Grass";
@@ -471,7 +471,6 @@ public class Pokemon
 		String out = "";
 		for(String atkNam: attacks.keySet())
         {
-            int pow = attacks.get(atkNam);
             out += atkNam + ", ";
         }
 		return out;
@@ -527,16 +526,112 @@ public class Pokemon
 		return output;
 	}
 	
-	public void attack()
+	public void attack(Pokemon other)
 	{
 		String choice = whichAttack();
-		
+		int dmg = findDmg(attacks.keySet().toArray()[0].toString(), other);
+		if(choice.equals("1"))
+		{
+			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[0] + " for " + dmg + " damage.");
+		}
+		else if(choice.equals("2"))
+		{
+			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[1] + " for " + dmg + " damage.");
+		}
+		else if(choice.equals("3"))
+		{
+			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[2] + " for " + dmg + " damage.");
+		}
+		other.loseHealth(dmg);
 	}
 	
-	public int typeEffect()
+	public int findDmg(String atk, Pokemon other)
 	{
-		return 0;
+		int dmg = attacks.get(atk);
+		dmg += typeEffect(other);
+		return dmg;
 	}
+	
+	public int typeEffect(Pokemon other)
+	{
+		int effect = UNAFFECTED;
+		if(type.equals(BULBASAUR_TYPE))
+		{
+			if(other.type.equals(CHARMANDER_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(SQUIRTLE_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(CHARMANDER_TYPE))
+		{
+			if(other.type.equals(SQUIRTLE_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(BULBASAUR_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(SQUIRTLE_TYPE))
+		{
+			if(other.type.equals(BULBASAUR_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(CHARMANDER_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(PIKACHU_TYPE))
+		{
+			if(other.type.equals(BULBASAUR_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(SQUIRTLE_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(SANDSHREW_TYPE))
+		{
+			if(other.type.equals(BULBASAUR_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(PIKACHU_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(MACHOP_TYPE))
+		{
+			if(other.type.equals(PIDGEY_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		else if(type.equals(MEW_TYPE))
+		{
+			if(other.type.equals(MEW_TYPE))
+			{
+				effect = WEAK;
+			}
+			else if(other.type.equals(MACHOP_TYPE))
+			{
+				effect = STRONG;
+			}
+		}
+		return effect;
+	}
+	
+	
 	
 	
 	
