@@ -9,7 +9,7 @@ public class Main
 	private JFrame Screen;
 	private Panel pnl;
 	private JLabel lbl;
-	ImageIcon icon = new ImageIcon("c:/users/jmhbyeu/Pictures/GreenHill.jpg", "beautyIncarnate");
+	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	
 	public static void main(String[] args)
 	{
@@ -18,7 +18,7 @@ public class Main
 	
 	public Main()
 	{
-		//initframe();
+		initframe();
 		Pokemon unusable = new Pokemon();
 		Pokemon p = new Pokemon("Pikachu");
 		System.out.println(p.getType());
