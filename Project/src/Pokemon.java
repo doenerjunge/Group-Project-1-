@@ -109,6 +109,7 @@ public class Pokemon
 	private String name;
 	private String type;
 	private int health;
+	private String nextEvo;
 	private HashMap<String, Integer> attacks;
 	private static final Scanner sc = new Scanner(System.in);
 	
@@ -180,6 +181,7 @@ public class Pokemon
 		this.name = name;
 		this.type = findType(name);
 		this.health = findHP(name);
+		this.nextEvo = findNextEvo(name);
 		this.attacks = findAttacks(name);
 	}
 	
@@ -222,11 +224,6 @@ public class Pokemon
 		{
 			type = IDK_TYPE;
 		}
-		return type;
-	}
-	
-	public String getType()
-	{
 		return type;
 	}
 	
@@ -334,6 +331,112 @@ public class Pokemon
 			hp = IDK_HP;
 		}
 		return hp;
+	}
+	
+	public String findNextEvo(String name)
+	{
+		String nextEvo = "";
+		if(name.equals("Bulbasaur"))
+		{
+			nextEvo = "Ivysaur";
+		}
+		else if(name.equals("Ivysaur")) 
+		{
+			nextEvo = "Venusaur";
+		}
+		else if(name.equals("Venusaur")) 
+		{
+			nextEvo = "Venusaur";
+		}
+		else if(name.equals("Charmander")) 
+		{
+			nextEvo = "Charmeleon";
+		}
+		else if(name.equals("Charmeleon")) 
+		{
+			nextEvo = "Charizard";
+		}
+		else if(name.equals("Charizard")) 
+		{
+			nextEvo = "Charizard";
+		}
+		else if(name.equals("Squirtle"))
+		{
+			nextEvo = "Wartortle";
+		}
+		else if(name.equals("Wartotle"))
+		{
+			nextEvo = "Blastoise";
+		}
+		else if(name.equals("Blastoise"))
+		{
+			nextEvo = "Blastoise";
+		}
+		else if(name.equals("Pidgey"))
+		{
+			nextEvo = "Pidgeotto";
+		}
+		else if(name.equals("Pidgeotto"))
+		{
+			nextEvo = "Pidgeot";
+		}
+		else if(name.equals("Pidgeot"))
+		{
+			nextEvo = "Pidgeot";
+		}
+		else if(name.equals("Pikachu"))
+		{
+			nextEvo = "Raichu";
+		}
+		else if(name.equals("Raichu"))
+		{
+			nextEvo = "Raichu";
+		}
+		else if(name.equals("Sandshrew"))
+		{
+			nextEvo = "Sandslash";
+		}
+		else if(name.equals("Sandslash"))
+		{
+			nextEvo = "Sandslash";
+		}
+		else if(name.equals("Machop"))
+		{
+			nextEvo = "Machoke";
+		}
+		else if(name.equals("Machoke"))
+		{
+			nextEvo = "Machamp";
+		}
+		else if(name.equals("Machamp"))
+		{
+			nextEvo = "Machamp";
+		}
+		else if(name.equals("Eevee"))
+		{
+			
+		}
+		else if(name.equals("Vaporeon"))
+		{
+			nextEvo = "Vaporeon";
+		}
+		else if(name.equals("Jolteon"))
+		{
+			nextEvo = "Jolteon";
+		}
+		else if(name.equals("Flareon"))
+		{
+			nextEvo = "Flareon";
+		}
+		else if(name.equals("Mew"))
+		{
+			nextEvo = "Mew";
+		}
+		else
+		{
+			nextEvo = "Idk";
+		}
+		return nextEvo;
 	}
 	
 	public HashMap<String, Integer> findAttacks(String name)
@@ -445,6 +548,11 @@ public class Pokemon
 	public String getName()
 	{
 		return this.name;
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 	
 	public void loseHealth(int amount)
