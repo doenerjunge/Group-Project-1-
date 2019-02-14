@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 public class Main
 {
@@ -12,6 +13,7 @@ public class Main
 	private JFrame Screen;
 	private Panel pnl;
 	private JLabel lbl;
+	private JTextArea jText;
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	
 	public static void main(String[] args)
@@ -40,8 +42,16 @@ public class Main
 		Screen.repaint();
 		initpanel();
 		initlabel();
+		initjText();
 	}
 	 
+	public void initjText() 
+	{
+		jText = new JTextArea();
+		jText.append( "Welcome to the world of Pokemon." );
+		Screen.add(jText);
+	}
+
 	private void initlabel() 
 	{
 		lbl = new JLabel(icon);
