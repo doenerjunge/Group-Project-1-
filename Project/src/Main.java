@@ -6,6 +6,9 @@ import javax.swing.JLabel;
 
 public class Main
 {
+	Pokemon unusable = new Pokemon();
+	User me = new User();
+	
 	private JFrame Screen;
 	private Panel pnl;
 	private JLabel lbl;
@@ -19,9 +22,22 @@ public class Main
 	public Main()
 	{
 		initframe();
-		Pokemon unusable = new Pokemon();
 		Pokemon p = new Pokemon("Pikachu");
-		System.out.println(p.getType());
+		me.addPokemon(p);
+		Pokemon c = new Pokemon("Charmander");
+		me.addPokemon(c);
+		Pokemon b = new Pokemon("Bulbasaur");
+		me.addPokemon(b);
+		System.out.println(me.getPokemon());
+		evolve(p);
+		evolve(c);
+		evolve(b);
+		System.out.println(me.getPokemon());
+	}
+	
+	public void evolve(Pokemon p)
+	{
+		me.replacePokemon(p, p.getNextEvo());
 	}
 	
 	public void initframe()

@@ -21,9 +21,26 @@ public class User
 		String out = "";
 		for(int i = 0; i < numPoke; i++)
 		{
-			out += pokeBalls[i] + ", ";
+			out += pokeBalls[i];
+			if(!(i == numPoke-1))
+			{
+				out += ", ";
+			}
 		}
 		return out;
+	}
+	
+	private int findIndex(Pokemon p)
+	{
+		int index = 0;
+		for(int i = 0; i < numPoke; i++)
+		{
+			if(pokeBalls[i].getName().equals(p.getName()))
+			{
+				index = i;
+			}
+		}
+		return index;
 	}
 	
 	public void losePokemon(int index)
@@ -40,8 +57,10 @@ public class User
 		pokeBalls = tempPokeBalls;
 	}
 	
-	public void replacePokemon(int index, Pokemon rplc)
+	public void replacePokemon(Pokemon oldPoke, String newPokeName)
 	{
+		int index = findIndex(oldPoke);
+		Pokemon newPoke = new Pokemon(newPokeName);
 		Pokemon[] tempPokeBalls = new Pokemon[5];
 		int stop = 0;
 		for(int i = 0; i < index; i++)
@@ -49,7 +68,7 @@ public class User
 			tempPokeBalls[i] = pokeBalls[i];
 			stop = i + 1;
 		}
-		tempPokeBalls[stop] = rplc;
+		tempPokeBalls[stop] = newPoke;
 		for(int i = index + 1; i < pokeBalls.length; i ++)
 		{
 			tempPokeBalls[i] = pokeBalls[i];

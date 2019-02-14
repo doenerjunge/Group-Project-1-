@@ -414,7 +414,7 @@ public class Pokemon
 		}
 		else if(name.equals("Eevee"))
 		{
-			
+			nextEvo = findEeveeNextEvo();
 		}
 		else if(name.equals("Vaporeon"))
 		{
@@ -435,6 +435,25 @@ public class Pokemon
 		else
 		{
 			nextEvo = "Idk";
+		}
+		return nextEvo;
+	}
+	
+	private String findEeveeNextEvo()
+	{
+		String nextEvo = "";
+		int randEvo = Randomizer.nextInt(1,3);
+		if(randEvo == 1)
+		{
+			nextEvo = "Vaporeon";
+		}
+		else if(randEvo == 2)
+		{
+			nextEvo = "Jolteon";
+		}
+		else if(randEvo == 3)
+		{
+			nextEvo = "Flareon";
 		}
 		return nextEvo;
 	}
@@ -553,6 +572,11 @@ public class Pokemon
 	public String getType()
 	{
 		return type;
+	}
+	
+	public String getNextEvo()
+	{
+		return nextEvo;
 	}
 	
 	public void loseHealth(int amount)
