@@ -631,6 +631,11 @@ public class Pokemon
 		return effect;
 	}
 	
+	public void doIt()
+	{
+		System.out.println("You know I had to do it too 'em.");
+	}
+	
 	
 	
 	
