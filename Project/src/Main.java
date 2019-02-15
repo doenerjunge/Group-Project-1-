@@ -7,14 +7,14 @@ import javax.swing.JTextArea;
 
 public class Main
 {
-	Pokemon unusable = new Pokemon();
+	Minimon unusable = new Minimon();
 	User me = new User();
 	
 	private JFrame Screen;
 	private Panel pnl;
 	private JLabel lbl;
 	private static JTextArea jText;
-	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
+	//ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	
 	public static void main(String[] args)
 	{
@@ -24,23 +24,13 @@ public class Main
 	public Main()
 	{
 		initframe();
-		Pokemon pik = new Pokemon("Pikachu");
-		Pokemon bulb = new Pokemon("Bulbasaur");
-		Pokemon cha = new Pokemon("Charmander");
-		Pokemon squi = new Pokemon("Squirtle");
-		Pokemon idk = new Pokemon("Error");
-		me.addPokemon(idk);
-		me.addPokemon(pik);
-		me.addPokemon(bulb);
-		me.addPokemon(cha);
-		me.addPokemon(squi);
-		idk.attack(pik);
+		println("Hello young trainer, I am Professor Git, feel free to select your first Minimon");
 		
 	}
 	
-	public void evolve(Pokemon p)
+	public void evolve(Minimon p)
 	{
-		me.replacePokemon(p, p.getNextEvo());
+		me.replaceMinimon(p, p.getNextEvo());
 	}
 	
 	public static void print(String message)
@@ -63,17 +53,18 @@ public class Main
 		Screen.pack();
 		Screen.repaint();
 		initpanel();
-		initlabel();
+		//initlabel();
 		initjText();
 	}
 	 
 	public void initjText() 
 	{
 		jText = new JTextArea();
-		jText.append( "Welcome to the world of Pokemon.\n" );
+		jText.append( "Welcome to the world of Minimon.\n" );
 		Screen.add(jText);
 	}
-
+	
+	/*
 	private void initlabel() 
 	{
 		lbl = new JLabel(icon);
@@ -81,6 +72,7 @@ public class Main
 		Screen.pack();
 		Screen.repaint();
 	}
+	*/
 
 	public void initpanel()
 	{

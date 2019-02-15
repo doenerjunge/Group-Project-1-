@@ -1,9 +1,9 @@
 public class User 
 {
-	private Pokemon[] pokeBalls = new Pokemon[5];
+	private Minimon[] miniBalls = new Minimon[5];
 	private String name;
 	private int curIndex;
-	private int numPoke;
+	private int numMini;
 	
 	public User()
 	{
@@ -20,44 +20,44 @@ public class User
 		return name;
 	}
 	
-	public void addPokemon(Pokemon poke)
+	public void addMinimon(Minimon Mini)
 	{
-		pokeBalls[curIndex] = poke;
-		poke.setOwner(name);
+		miniBalls[curIndex] = Mini;
+		Mini.setOwner(name);
 		curIndex ++;
-		numPoke ++;
+		numMini ++;
 	}
 	
-	public String getPokemon()
+	public String getMinimon()
 	{
 		String out = "";
-		for(int i = 0; i < numPoke; i++)
+		for(int i = 0; i < numMini; i++)
 		{
-			if(i == numPoke-1)
+			if(i == numMini-1)
 			{
-				if(numPoke == 1)
+				if(numMini == 1)
 				{
-					out += pokeBalls[i];
+					out += miniBalls[i];
 				}
 				else
 				{
-					out += "and "+ pokeBalls[i];
+					out += "and "+ miniBalls[i];
 				}
 			}
 			else
 			{
-				out += pokeBalls[i] + ", ";
+				out += miniBalls[i] + ", ";
 			}
 		}
 		return out;
 	}
 	
-	private int findIndex(Pokemon p)
+	private int findIndex(Minimon p)
 	{
 		int index = 0;
-		for(int i = 0; i < numPoke; i++)
+		for(int i = 0; i < numMini; i++)
 		{
-			if(pokeBalls[i].getName().equals(p.getName()))
+			if(miniBalls[i].getName().equals(p.getName()))
 			{
 				index = i;
 			}
@@ -65,36 +65,36 @@ public class User
 		return index;
 	}
 	
-	public void losePokemon(int index)
+	public void loseMinimon(int index)
 	{
-		Pokemon[] tempPokeBalls = new Pokemon[5];
+		Minimon[] tempMiniBalls = new Minimon[5];
 		for(int i = 0; i < index; i++)
 		{
-			tempPokeBalls[i] = pokeBalls[i];
+			tempMiniBalls[i] = miniBalls[i];
 		}
-		for(int i = index + 1; i < pokeBalls.length; i ++)
+		for(int i = index + 1; i < miniBalls.length; i ++)
 		{
-			tempPokeBalls[i-1] = pokeBalls[i];
+			tempMiniBalls[i-1] = miniBalls[i];
 		}
-		pokeBalls = tempPokeBalls;
+		miniBalls = tempMiniBalls;
 	}
 	
-	public void replacePokemon(Pokemon oldPoke, String newPokeName)
+	public void replaceMinimon(Minimon oldMini, String newMiniName)
 	{
-		int index = findIndex(oldPoke);
-		Pokemon newPoke = new Pokemon(newPokeName);
-		Pokemon[] tempPokeBalls = new Pokemon[5];
+		int index = findIndex(oldMini);
+		Minimon newMini = new Minimon(newMiniName);
+		Minimon[] tempMiniBalls = new Minimon[5];
 		int stop = 0;
 		for(int i = 0; i < index; i++)
 		{
-			tempPokeBalls[i] = pokeBalls[i];
+			tempMiniBalls[i] = miniBalls[i];
 			stop = i + 1;
 		}
-		tempPokeBalls[stop] = newPoke;
-		for(int i = index + 1; i < pokeBalls.length; i ++)
+		tempMiniBalls[stop] = newMini;
+		for(int i = index + 1; i < miniBalls.length; i ++)
 		{
-			tempPokeBalls[i] = pokeBalls[i];
+			tempMiniBalls[i] = miniBalls[i];
 		}
-		pokeBalls = tempPokeBalls;
+		miniBalls = tempMiniBalls;
 	}
 }

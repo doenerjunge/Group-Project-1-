@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Pokemon 
+public class Minimon 
 {	
 	public static final double STRONG = 2;
 	public static final double UNAFFECTED = 1;
@@ -116,7 +116,7 @@ public class Pokemon
 	private HashMap<String, Integer> attacks;
 	private static final Scanner sc = new Scanner(System.in);
 	
-	public Pokemon()
+	public Minimon()
 	{
 		BULBASAUR_ATTACKS.put("Tackle", 40);
 		BULBASAUR_ATTACKS.put("Vine Whip", 45);
@@ -179,7 +179,7 @@ public class Pokemon
 		IDK_ATTACKS.put("null", Randomizer.nextInt(20, 60));
 	}
 	
-	public Pokemon(String name)
+	public Minimon(String name)
 	{
 		this.name = name;
 		this.type = findType(name);
@@ -695,7 +695,7 @@ public class Pokemon
 		return output;
 	}
 	
-	public void attack(Pokemon other)
+	public void attack(Minimon other)
 	{
 		int choiceIndex = whichAttack() - 1;
 		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
@@ -703,7 +703,7 @@ public class Pokemon
 		other.loseHealth(dmg);
 	}
 	
-	public int findDmg(String atk, Pokemon other)
+	public int findDmg(String atk, Minimon other)
 	{
 		MACHAMP_ATTACKS.replace("Counter", lastDamageDone);
 		int dmg = attacks.get(atk);
@@ -711,7 +711,7 @@ public class Pokemon
 		return dmg;
 	}
 	
-	public double typeEffect(Pokemon other)
+	public double typeEffect(Minimon other)
 	{
 		double effect = UNAFFECTED;
 		if(type.equals(BULBASAUR_TYPE))
