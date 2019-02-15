@@ -1,6 +1,7 @@
 public class User 
 {
 	private Pokemon[] pokeBalls = new Pokemon[5];
+	private String name;
 	private int curIndex;
 	private int numPoke;
 	
@@ -9,9 +10,20 @@ public class User
 		
 	}
 	
+	public User(String name)
+	{
+		this.name = name;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
 	public void addPokemon(Pokemon poke)
 	{
 		pokeBalls[curIndex] = poke;
+		poke.setOwner(name);
 		curIndex ++;
 		numPoke ++;
 	}
@@ -21,10 +33,20 @@ public class User
 		String out = "";
 		for(int i = 0; i < numPoke; i++)
 		{
-			out += pokeBalls[i];
-			if(!(i == numPoke-1))
+			if(i == numPoke-1)
 			{
-				out += ", ";
+				if(numPoke == 1)
+				{
+					out += pokeBalls[i];
+				}
+				else
+				{
+					out += "and "+ pokeBalls[i] + "\n";
+				}
+			}
+			else
+			{
+				out += pokeBalls[i] + ", " + "\n";
 			}
 		}
 		return out;

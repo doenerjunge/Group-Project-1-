@@ -24,6 +24,11 @@ public class Main
 	public Main()
 	{
 		initframe();
+		Pokemon champ = new Pokemon("Machamp");
+		Pokemon mew = new Pokemon("Mew");
+		champ.attack(mew);
+		mew.attack(champ);
+		champ.attack(mew);
 	}
 	
 	public void evolve(Pokemon p)

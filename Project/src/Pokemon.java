@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Pokemon 
 {
-	public static final int STRONG = 20;
-	public static final int UNAFFECTED = 0;
-	public static final int WEAK = -20;
+	public static final double STRONG = 2;
+	public static final double UNAFFECTED = 1;
+	public static final double WEAK = .5;
 	
 	public static final int BULBASAUR_HP = 45;
 	public static final String BULBASAUR_TYPE = "Grass";
@@ -102,14 +102,17 @@ public class Pokemon
 	public static final String MEW_TYPE = "Psychic";
 	public static final HashMap<String, Integer> MEW_ATTACKS = new HashMap<String, Integer>();
 	
-	public static final int IDK_HP = 2000;
-	public static final String IDK_TYPE = "Error";
+	public static final int IDK_HP = 1;
+	public static final String IDK_TYPE = "null";
 	public static final HashMap<String, Integer> IDK_ATTACKS = new HashMap<String, Integer>();
 	
 	private String name;
 	private String type;
 	private int health;
+	private int xP;
 	private String nextEvo;
+	private String owner;
+	private int lastDamageDone;
 	private HashMap<String, Integer> attacks;
 	private static final Scanner sc = new Scanner(System.in);
 	
@@ -163,7 +166,7 @@ public class Pokemon
 		MACHOKE_ATTACKS.put("Tackle", 60);
 		MACHAMP_ATTACKS.put("Strength", 80);
 		MACHAMP_ATTACKS.put("Low Kick", 100);
-		//MACHAMP_ATTACKS.put("Counter", lastDamageDone());
+		MACHAMP_ATTACKS.put("Counter", lastDamageDone);
 		EEVEE_ATTACKS.put("Tackle", 40);
 		VAPOREON_ATTACKS.put("Water Gun", 40);
 		VAPOREON_ATTACKS.put("Tackle", 40);
@@ -173,7 +176,7 @@ public class Pokemon
 		FLAREON_ATTACKS.put("Tackle", 40);
 		MEW_ATTACKS.put("Pound", 40);
 		MEW_ATTACKS.put("Confusion", 50);
-		IDK_ATTACKS.put("???", Randomizer.nextInt(20, 60));
+		IDK_ATTACKS.put("null", Randomizer.nextInt(20, 60));
 	}
 	
 	public Pokemon(String name)
@@ -183,6 +186,9 @@ public class Pokemon
 		this.health = findHP(name);
 		this.nextEvo = findNextEvo(name);
 		this.attacks = findAttacks(name);
+		this.xP = 0;
+		this.lastDamageDone = 0;
+		this.owner = "Wild";
 	}
 	
 	public String findType(String name)
@@ -258,7 +264,7 @@ public class Pokemon
 		{
 			hp = SQUIRTLE_HP;
 		}
-		else if(name.equals("Wartotle"))
+		else if(name.equals("Wartortle"))
 		{
 			hp = WARTORTLE_HP;
 		}
@@ -364,7 +370,7 @@ public class Pokemon
 		{
 			nextEvo = "Wartortle";
 		}
-		else if(name.equals("Wartotle"))
+		else if(name.equals("Wartortle"))
 		{
 			nextEvo = "Blastoise";
 		}
@@ -489,7 +495,7 @@ public class Pokemon
 		{
 			output = SQUIRTLE_ATTACKS;
 		}
-		else if(name.equals("Wartotle"))
+		else if(name.equals("Wartortle"))
 		{
 			output = WARTORTLE_ATTACKS;
 		}
@@ -579,9 +585,9 @@ public class Pokemon
 		return nextEvo;
 	}
 	
-	public void loseHealth(int amount)
+	public int getXP()
 	{
-		health -= amount;
+		return xP;
 	}
 	
 	public int getHealth()
@@ -589,33 +595,49 @@ public class Pokemon
 		return health;
 	}
 	
-	public void printAttacks()
+	public String getAttacks()
 	{
-		for(String atkNam: attacks.keySet())
-        {
-            int pow = attacks.get(atkNam);
-            System.out.println(atkNam + ": " + pow);
-        }
+		String out = "";
+		for(int i = 0; i < attacks.size(); i++)
+		{
+			if(i == attacks.size()-1)
+			{
+				if(attacks.size() == 1)
+				{
+					out += attacks.keySet().toArray()[i];
+				}
+				else
+				{
+					out += "and "+ attacks.keySet().toArray()[i];
+				}
+			}
+			else
+			{
+				out += attacks.keySet().toArray()[i] + ", ";
+			}
+		}
+		return out;
 	}
 	
 	public String toString()
 	{
-		return name;
+		return "level " + xP + " " + type + " " + name + " at " + health + " health going to evolve to " + nextEvo + " owned by " + owner + " with attacks: " + attacks;
 	}
 	
-	public String getAttacks()
+	public void loseHealth(int amount)
 	{
-		String out = "";
-		for(String atkNam: attacks.keySet())
-        {
-            out += atkNam + ", ";
-        }
-		return out;
+		health -= amount;
+		lastDamageDone = amount;
 	}
 	
-	public String whichAttack()
+	public void setOwner(String owner)
 	{
-		String output = "";
+		this.owner = owner;
+	}
+	
+	public int whichAttack()
+	{
+		int output = 0;
 		while(true)
 		{
 			String userInput = readLine("Choose Your Attack: 1, 2, or 3: " + getAttacks());
@@ -623,7 +645,7 @@ public class Pokemon
 			{
 				if(attacks.size() >= 1)
 				{
-					output = userInput;
+					output = 1;
 					break;
 				}
 				else
@@ -635,7 +657,7 @@ public class Pokemon
 			{
 				if(attacks.size() >= 2)
 				{
-					output = userInput;
+					output = 2;
 					break;
 				}
 				else
@@ -647,7 +669,7 @@ public class Pokemon
 			{
 				if(attacks.size() >= 3)
 				{
-					output = userInput;
+					output = 3;
 					break;
 				}
 				else
@@ -665,33 +687,22 @@ public class Pokemon
 	
 	public void attack(Pokemon other)
 	{
-		String choice = whichAttack();
-		int dmg = findDmg(attacks.keySet().toArray()[0].toString(), other);
-		if(choice.equals("1"))
-		{
-			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[0] + " for " + dmg + " damage.");
-		}
-		else if(choice.equals("2"))
-		{
-			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[1] + " for " + dmg + " damage.");
-		}
-		else if(choice.equals("3"))
-		{
-			System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[2] + " for " + dmg + " damage.");
-		}
+		int choiceIndex = whichAttack() - 1;
+		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
+		System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage.");
 		other.loseHealth(dmg);
 	}
 	
 	public int findDmg(String atk, Pokemon other)
 	{
 		int dmg = attacks.get(atk);
-		dmg += typeEffect(other);
+		dmg *= typeEffect(other);
 		return dmg;
 	}
 	
-	public int typeEffect(Pokemon other)
+	public double typeEffect(Pokemon other)
 	{
-		int effect = UNAFFECTED;
+		double effect = UNAFFECTED;
 		if(type.equals(BULBASAUR_TYPE))
 		{
 			if(other.type.equals(CHARMANDER_TYPE))
