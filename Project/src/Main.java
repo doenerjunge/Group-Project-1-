@@ -26,8 +26,8 @@ public class Main
 		initframe();
 		Pokemon champ = new Pokemon("Machamp");
 		Pokemon mew = new Pokemon("Mew");
-		champ.attack(mew);
 		mew.attack(champ);
+		System.out.println(champ.getLastDamageDone());
 		champ.attack(mew);
 	}
 	

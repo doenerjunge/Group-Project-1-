@@ -595,6 +595,11 @@ public class Pokemon
 		return health;
 	}
 	
+	public int getLastDamageDone()
+	{
+		return lastDamageDone;
+	}
+	
 	public String getAttacks()
 	{
 		String out = "";
@@ -695,6 +700,7 @@ public class Pokemon
 	
 	public int findDmg(String atk, Pokemon other)
 	{
+		MACHAMP_ATTACKS.replace("Counter", lastDamageDone);
 		int dmg = attacks.get(atk);
 		dmg *= typeEffect(other);
 		return dmg;
