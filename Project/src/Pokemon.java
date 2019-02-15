@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Pokemon 
-{
+{	
 	public static final double STRONG = 2;
 	public static final double UNAFFECTED = 1;
 	public static final double WEAK = .5;
@@ -595,6 +595,11 @@ public class Pokemon
 		return health;
 	}
 	
+	public String getOwner()
+	{
+		return owner;
+	}
+	
 	public int getLastDamageDone()
 	{
 		return lastDamageDone;
@@ -626,7 +631,7 @@ public class Pokemon
 	
 	public String toString()
 	{
-		return "level " + xP + " " + type + " " + name + " at " + health + " health going to evolve to " + nextEvo + " owned by " + owner + " with attacks: " + attacks;
+		return "level " + xP + " " + name;
 	}
 	
 	public void loseHealth(int amount)
@@ -655,7 +660,7 @@ public class Pokemon
 				}
 				else
 				{
-					System.out.println("Please type a compatible number");
+					Main.println("Please type a compatible number");
 				}
 			}
 			else if(userInput.equals("2"))
@@ -667,7 +672,7 @@ public class Pokemon
 				}
 				else
 				{
-					System.out.println("Please type a compatible number");
+					Main.println("Please type a compatible number");
 				}
 			}
 			else if(userInput.equals("3"))
@@ -679,12 +684,12 @@ public class Pokemon
 				}
 				else
 				{
-					System.out.println("Please type a compatible number");
+					Main.println("Please type a compatible number");
 				}
 			}
 			else
 			{
-				System.out.println("Please type a compatible number");
+				Main.println("Please type a compatible number");
 			}
 		}
 		return output;
@@ -694,7 +699,7 @@ public class Pokemon
 	{
 		int choiceIndex = whichAttack() - 1;
 		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
-		System.out.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage.");
+		Main.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage.");
 		other.loseHealth(dmg);
 	}
 	
@@ -798,7 +803,7 @@ public class Pokemon
 	
 	public String readLine(String prompt)
 	{
-        System.out.print(prompt);
+        Main.println(prompt);
         return sc.nextLine();
     }
 

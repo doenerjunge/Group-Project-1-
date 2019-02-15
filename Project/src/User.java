@@ -41,12 +41,12 @@ public class User
 				}
 				else
 				{
-					out += "and "+ pokeBalls[i] + "\n";
+					out += "and "+ pokeBalls[i];
 				}
 			}
 			else
 			{
-				out += pokeBalls[i] + ", " + "\n";
+				out += pokeBalls[i] + ", ";
 			}
 		}
 		return out;
