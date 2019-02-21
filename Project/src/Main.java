@@ -1,7 +1,5 @@
-import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
@@ -11,13 +9,10 @@ public class Main
 	Minimon unusable = new Minimon();
 	User me = new User();
 	
-	private JFrame Screen;
-	SpringLayout layout = new SpringLayout();
+	static JFrame Screen;
+	static SpringLayout layout = new SpringLayout();
 	private Panel pnl;
 	private static JTextArea jText;
-	private JButton jbutOne;
-	private JButton jbutTwo;
-	private JButton jbutThree;
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	
 	public static void main(String[] args)
@@ -29,7 +24,6 @@ public class Main
 	{
 		initialize();
 		println("Hello young trainer, I am Professor Git, feel free to select your first Minimon");
-		
 	}
 	
 	public void evolve(Minimon p)
@@ -55,27 +49,11 @@ public class Main
 		Screen.setVisible(true);
 		Screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
+		Three_Buttons threebut = new Three_Buttons();
+		
 		pnl = new Panel();
 		pnl.setLayout(new SpringLayout());
-		//pnl.setPreferredSize(new Dimension(500, 30));
-		//layout.putConstraint(SpringLayout.WEST, pnl, 0, SpringLayout.WEST, Screen);
 		Screen.add(pnl, SpringLayout.WEST);
-		
-		jbutOne = new JButton("One");
-		jbutTwo = new JButton("Two");
-		jbutThree = new JButton("Three");
-		jbutOne.setPreferredSize(new Dimension(100, 100));
-		jbutTwo.setPreferredSize(new Dimension(100, 100));
-		jbutThree.setPreferredSize(new Dimension(100, 100));
-		layout.putConstraint(SpringLayout.NORTH, jbutOne, 300, SpringLayout.NORTH, Screen);
-		layout.putConstraint(SpringLayout.NORTH, jbutTwo, 400, SpringLayout.NORTH, Screen);
-		layout.putConstraint(SpringLayout.NORTH, jbutThree, 500, SpringLayout.NORTH, Screen);
-		layout.putConstraint(SpringLayout.WEST, jbutOne, 1580, SpringLayout.NORTH, Screen);
-		layout.putConstraint(SpringLayout.WEST, jbutTwo, 1580, SpringLayout.NORTH, Screen);
-		layout.putConstraint(SpringLayout.WEST, jbutThree, 1580, SpringLayout.NORTH, Screen);
-		Screen.add(jbutOne, SpringLayout.EAST);
-		Screen.add(jbutTwo, SpringLayout.EAST);
-		Screen.add(jbutThree, SpringLayout.EAST);
 		
 		jText = new JTextArea();
 		jText.append( "Welcome to the world of Minimon.\n" );

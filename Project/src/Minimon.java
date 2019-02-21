@@ -648,48 +648,23 @@ public class Minimon
 	public int whichAttack()
 	{
 		int output = 0;
+		Main.println("Choose Your Attack: 1, 2, or 3: " + getAttacks());
 		while(true)
 		{
-			String userInput = readLine("Choose Your Attack: 1, 2, or 3: " + getAttacks());
-			if(userInput.equals("1"))
+			if(Three_Buttons.onePressed = true)
 			{
-				if(attacks.size() >= 1)
-				{
-					output = 1;
-					break;
-				}
-				else
-				{
-					Main.println("Please type a compatible number");
-				}
+				output = 1;
+				break;
 			}
-			else if(userInput.equals("2"))
+			else if(Three_Buttons.twoPressed = true)
 			{
-				if(attacks.size() >= 2)
-				{
-					output = 2;
-					break;
-				}
-				else
-				{
-					Main.println("Please type a compatible number");
-				}
+				output = 2;
+				break;
 			}
-			else if(userInput.equals("3"))
+			else if(Three_Buttons.threePressed = true)
 			{
-				if(attacks.size() >= 3)
-				{
-					output = 3;
-					break;
-				}
-				else
-				{
-					Main.println("Please type a compatible number");
-				}
-			}
-			else
-			{
-				Main.println("Please type a compatible number");
+				output = 3;
+				break;
 			}
 		}
 		return output;
