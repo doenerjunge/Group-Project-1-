@@ -57,9 +57,9 @@ public class Main
 		
 		pnl = new Panel();
 		pnl.setLayout(new SpringLayout());
-		pnl.setPreferredSize(new Dimension(500, 30));
-		layout.putConstraint(SpringLayout.NORTH, pnl, 0, SpringLayout.NORTH, Screen);
-		Screen.add(pnl, SpringLayout.NORTH);
+		//pnl.setPreferredSize(new Dimension(500, 30));
+		//layout.putConstraint(SpringLayout.WEST, pnl, 0, SpringLayout.WEST, Screen);
+		Screen.add(pnl, SpringLayout.WEST);
 		
 		jbutOne = new JButton("One");
 		jbutTwo = new JButton("Two");
@@ -67,13 +67,15 @@ public class Main
 		jbutOne.setPreferredSize(new Dimension(100, 100));
 		jbutTwo.setPreferredSize(new Dimension(100, 100));
 		jbutThree.setPreferredSize(new Dimension(100, 100));
-		layout.putConstraint(SpringLayout.SOUTH, jbutOne, 700, SpringLayout.SOUTH, Screen);
-		layout.putConstraint(SpringLayout.SOUTH, jbutTwo, 800, SpringLayout.SOUTH, Screen);
-		layout.putConstraint(SpringLayout.SOUTH, jbutThree, 900, SpringLayout.SOUTH, Screen);
-		layout.putConstraint(SpringLayout.NORTH, pnl, 0, SpringLayout.NORTH, Screen);
-		Screen.add(jbutOne, SpringLayout.SOUTH);
-		Screen.add(jbutTwo, SpringLayout.SOUTH);
-		Screen.add(jbutThree, SpringLayout.SOUTH);
+		layout.putConstraint(SpringLayout.NORTH, jbutOne, 300, SpringLayout.NORTH, Screen);
+		layout.putConstraint(SpringLayout.NORTH, jbutTwo, 400, SpringLayout.NORTH, Screen);
+		layout.putConstraint(SpringLayout.NORTH, jbutThree, 500, SpringLayout.NORTH, Screen);
+		layout.putConstraint(SpringLayout.WEST, jbutOne, 1580, SpringLayout.NORTH, Screen);
+		layout.putConstraint(SpringLayout.WEST, jbutTwo, 1580, SpringLayout.NORTH, Screen);
+		layout.putConstraint(SpringLayout.WEST, jbutThree, 1580, SpringLayout.NORTH, Screen);
+		Screen.add(jbutOne, SpringLayout.EAST);
+		Screen.add(jbutTwo, SpringLayout.EAST);
+		Screen.add(jbutThree, SpringLayout.EAST);
 		
 		jText = new JTextArea();
 		jText.append( "Welcome to the world of Minimon.\n" );
