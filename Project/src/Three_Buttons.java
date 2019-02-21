@@ -19,6 +19,7 @@ public class Three_Buttons implements ActionListener
 		jbutOne = new JButton("One");
 		jbutTwo = new JButton("Two");
 		jbutThree = new JButton("Three");
+		
 		jbutOne.setPreferredSize(new Dimension(100, 100));
 		jbutTwo.setPreferredSize(new Dimension(100, 100));
 		jbutThree.setPreferredSize(new Dimension(100, 100));
@@ -31,6 +32,7 @@ public class Three_Buttons implements ActionListener
 		Main.Screen.add(jbutOne, SpringLayout.EAST);
 		Main.Screen.add(jbutTwo, SpringLayout.EAST);
 		Main.Screen.add(jbutThree, SpringLayout.EAST);
+		
 		jbutOne.addActionListener(this);
 		jbutTwo.addActionListener(this);
 		jbutThree.addActionListener(this);
@@ -60,19 +62,19 @@ public class Three_Buttons implements ActionListener
 	public void pressOne()
 	{
 		onePressed = true;
-		onePressed = false;
+		//onePressed = false;
 	}
 	
 	public void pressTwo()
 	{
 		twoPressed = true;
-		twoPressed = false;
+		//twoPressed = false;
 	}
 	
 	public void pressThree()
 	{
 		threePressed = true;
-		threePressed = false;
+		//threePressed = false;
 	}
 
 }

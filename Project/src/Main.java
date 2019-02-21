@@ -24,6 +24,9 @@ public class Main
 	{
 		initialize();
 		println("Hello young trainer, I am Professor Git, feel free to select your first Minimon");
+		Minimon pik = new Minimon("Pikachu");
+		int that = pik.whichAttack();
+		System.out.println(that);
 	}
 	
 	public void evolve(Minimon p)

@@ -651,22 +651,25 @@ public class Minimon
 		Main.println("Choose Your Attack: 1, 2, or 3: " + getAttacks());
 		while(true)
 		{
-			if(Three_Buttons.onePressed = true)
+			if(Three_Buttons.onePressed == true)
 			{
 				output = 1;
 				break;
 			}
-			else if(Three_Buttons.twoPressed = true)
+			else if(Three_Buttons.twoPressed == true)
 			{
 				output = 2;
 				break;
 			}
-			else if(Three_Buttons.threePressed = true)
+			else if(Three_Buttons.threePressed == true)
 			{
 				output = 3;
 				break;
 			}
 		}
+		Three_Buttons.onePressed = false;
+		Three_Buttons.twoPressed = false;
+		Three_Buttons.threePressed = false;
 		return output;
 	}
 	
