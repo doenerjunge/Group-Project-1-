@@ -649,27 +649,55 @@ public class Minimon
 	{
 		int output = 0;
 		Main.println("Choose Your Attack: 1, 2, or 3: " + getAttacks());
+		Buttons.show();
 		while(true)
 		{
-			if(Three_Buttons.onePressed == true)
+			boolean one = Buttons.onePressed;
+			boolean two = Buttons.twoPressed;
+			boolean three = Buttons.threePressed;
+			if(one == true)
 			{
-				output = 1;
-				break;
+				if(attacks.size() >= 1)
+				{
+					output = 1;
+					Buttons.onePressed = false;
+					Buttons.hide();
+					break;
+				}
+				else
+				{
+					Main.println("Please press a button coresponding to an attack.");
+				}
 			}
-			else if(Three_Buttons.twoPressed == true)
+			else if(two == true)
 			{
-				output = 2;
-				break;
+				if(attacks.size() >= 2)
+				{
+					output = 2;
+					Buttons.twoPressed = false;
+					Buttons.hide();
+					break;
+				}
+				else
+				{
+					Main.println("Please press a button coresponding to an attack.");
+				}
 			}
-			else if(Three_Buttons.threePressed == true)
+			else if(three == true)
 			{
-				output = 3;
-				break;
+				if(attacks.size() >= 3)
+				{
+					output = 3;
+					Buttons.threePressed = false;
+					Buttons.hide();
+					break;
+				}
+				else
+				{
+					Main.println("Please press a button coresponding to an attack.");
+				}
 			}
 		}
-		Three_Buttons.onePressed = false;
-		Three_Buttons.twoPressed = false;
-		Three_Buttons.threePressed = false;
 		return output;
 	}
 	

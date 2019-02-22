@@ -5,16 +5,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 
-public class Three_Buttons implements ActionListener
+public class Buttons implements ActionListener
 {
 	public static boolean onePressed = false;
 	public static boolean twoPressed = false;
 	public static boolean threePressed = false;
-	public JButton jbutOne;
-	public JButton jbutTwo;
-	public JButton jbutThree;
+	public static JButton jbutOne;
+	public static JButton jbutTwo;
+	public static JButton jbutThree;
 	
-	public Three_Buttons()
+	public Buttons()
 	{
 		jbutOne = new JButton("One");
 		jbutTwo = new JButton("Two");
@@ -39,6 +39,8 @@ public class Three_Buttons implements ActionListener
 		jbutOne.setActionCommand("One");
 		jbutTwo.setActionCommand("Two");
 		jbutThree.setActionCommand("Three");
+		
+		hide();
 	}
 	
 	@Override
@@ -59,22 +61,33 @@ public class Three_Buttons implements ActionListener
 		}
 	}
 	
+	public static void hide()
+	{
+		jbutOne.setVisible(false);
+		jbutTwo.setVisible(false);
+		jbutThree.setVisible(false);
+	}
+	
+	public static void show()
+	{
+		jbutOne.setVisible(true);
+		jbutTwo.setVisible(true);
+		jbutThree.setVisible(true);
+	}
+	
 	public void pressOne()
 	{
 		onePressed = true;
-		//onePressed = false;
 	}
 	
 	public void pressTwo()
 	{
 		twoPressed = true;
-		//twoPressed = false;
 	}
 	
 	public void pressThree()
 	{
 		threePressed = true;
-		//threePressed = false;
 	}
 
 }

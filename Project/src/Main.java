@@ -6,7 +6,6 @@ import javax.swing.SpringLayout;
 
 public class Main
 {
-	Minimon unusable = new Minimon();
 	User me = new User();
 	
 	static JFrame Screen;
@@ -25,8 +24,8 @@ public class Main
 		initialize();
 		println("Hello young trainer, I am Professor Git, feel free to select your first Minimon");
 		Minimon pik = new Minimon("Pikachu");
-		int that = pik.whichAttack();
-		System.out.println(that);
+		Minimon bulb = new Minimon("Bulbasaur");
+		pik.attack(bulb);
 	}
 	
 	public void evolve(Minimon p)
@@ -52,7 +51,7 @@ public class Main
 		Screen.setVisible(true);
 		Screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		Three_Buttons threebut = new Three_Buttons();
+		new Buttons();
 		
 		pnl = new Panel();
 		pnl.setLayout(new SpringLayout());
@@ -65,5 +64,7 @@ public class Main
 		
 		Screen.pack();
 		Screen.repaint();
+		
+		new Minimon();
 	}
 }
