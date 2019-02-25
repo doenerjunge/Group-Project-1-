@@ -12,6 +12,7 @@ public class Main
 	static SpringLayout layout = new SpringLayout();
 	private Panel pnl;
 	private static JTextArea jText;
+	public static Buttons that;
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	
 	public static void main(String[] args)
@@ -51,7 +52,7 @@ public class Main
 		Screen.setVisible(true);
 		Screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		new Buttons();
+		that = new Buttons();
 		
 		pnl = new Panel();
 		pnl.setLayout(new SpringLayout());

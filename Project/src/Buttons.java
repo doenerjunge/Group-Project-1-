@@ -7,9 +7,9 @@ import javax.swing.SpringLayout;
 
 public class Buttons implements ActionListener
 {
-	public static boolean onePressed = false;
-	public static boolean twoPressed = false;
-	public static boolean threePressed = false;
+	public boolean onePressed = false;
+	public boolean twoPressed = false;
+	public boolean threePressed = false;
 	public static JButton jbutOne;
 	public static JButton jbutTwo;
 	public static JButton jbutThree;
@@ -61,14 +61,14 @@ public class Buttons implements ActionListener
 		}
 	}
 	
-	public static void hide()
+	public void hide()
 	{
 		jbutOne.setVisible(false);
 		jbutTwo.setVisible(false);
 		jbutThree.setVisible(false);
 	}
 	
-	public static void show()
+	public void show()
 	{
 		jbutOne.setVisible(true);
 		jbutTwo.setVisible(true);

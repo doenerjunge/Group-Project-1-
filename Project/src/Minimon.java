@@ -612,18 +612,11 @@ public class Minimon
 		{
 			if(i == attacks.size()-1)
 			{
-				if(attacks.size() == 1)
-				{
-					out += attacks.keySet().toArray()[i];
-				}
-				else
-				{
-					out += "and "+ attacks.keySet().toArray()[i];
-				}
+				out += (i+1) + ": " + attacks.keySet().toArray()[i];
 			}
 			else
 			{
-				out += attacks.keySet().toArray()[i] + ", ";
+				out += (i+1) + ": " + attacks.keySet().toArray()[i] + ", ";
 			}
 		}
 		return out;
@@ -648,20 +641,20 @@ public class Minimon
 	public int whichAttack()
 	{
 		int output = 0;
-		Main.println("Choose Your Attack: 1, 2, or 3: " + getAttacks());
-		Buttons.show();
+		Main.println("Choose Your Attack: " + getAttacks());
+		Main.that.show();
 		while(true)
 		{
-			boolean one = Buttons.onePressed;
-			boolean two = Buttons.twoPressed;
-			boolean three = Buttons.threePressed;
+			boolean one = Main.that.onePressed;
+			boolean two = Main.that.twoPressed;
+			boolean three = Main.that.threePressed;
 			if(one == true)
 			{
 				if(attacks.size() >= 1)
 				{
 					output = 1;
-					Buttons.onePressed = false;
-					Buttons.hide();
+					Main.that.onePressed = false;
+					Main.that.hide();
 					break;
 				}
 				else
@@ -674,8 +667,8 @@ public class Minimon
 				if(attacks.size() >= 2)
 				{
 					output = 2;
-					Buttons.twoPressed = false;
-					Buttons.hide();
+					Main.that.twoPressed = false;
+					Main.that.hide();
 					break;
 				}
 				else
@@ -688,8 +681,8 @@ public class Minimon
 				if(attacks.size() >= 3)
 				{
 					output = 3;
-					Buttons.threePressed = false;
-					Buttons.hide();
+					Main.that.threePressed = false;
+					Main.that.hide();
 					break;
 				}
 				else
