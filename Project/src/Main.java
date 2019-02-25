@@ -29,28 +29,35 @@ public class Main
 		pik.attack(bulb);
 	}
 	
-	/*
 	public void attack(Minimon mine)
 	{
 		Minimon opp = Minimon(randMin());
 		while(true)
 		{
 			mine.attack(opp);
+			if(opp.health > 0)
+			{
+				
+			}
 		}
 	}
-	*/
 	
 	public void evolve(Minimon p)
 	{
 		me.replaceMinimon(p, p.getNextEvo());
 	}
 	
-	public static void print(String message)
+	public static void println(String message)
 	{
-		jText.append(message);
+		jText.append(message + "\n");
 	}
 	
-	public static void println(String message)
+	public static void println(boolean message)
+	{
+		jText.append(message + "\n");
+	}
+	
+	public static void println(int message)
 	{
 		jText.append(message + "\n");
 	}

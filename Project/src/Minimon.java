@@ -646,6 +646,7 @@ public class Minimon
 		there.show();
 		while(true)
 		{
+			Main.println(there.onePressed);
 			boolean one = there.onePressed;
 			boolean two = there.twoPressed;
 			boolean three = there.threePressed;
