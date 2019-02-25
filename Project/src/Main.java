@@ -29,6 +29,17 @@ public class Main
 		pik.attack(bulb);
 	}
 	
+	/*
+	public void attack(Minimon mine)
+	{
+		Minimon opp = Minimon(randMin());
+		while(true)
+		{
+			mine.attack(opp);
+		}
+	}
+	*/
+	
 	public void evolve(Minimon p)
 	{
 		me.replaceMinimon(p, p.getNextEvo());
@@ -64,6 +75,7 @@ public class Main
 		
 		
 		Screen.pack();
+		Screen.revalidate();
 		Screen.repaint();
 		
 		new Minimon();

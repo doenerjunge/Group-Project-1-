@@ -49,15 +49,15 @@ public class Buttons implements ActionListener
 		String action = ar.getActionCommand();
 		if(action.equals("One"))
 		{
-			pressOne();
+			onePressed = true;
 		}
 		else if(action.equals("Two"))
 		{
-			pressTwo();
+			twoPressed = true;
 		}
 		else if(action.equals("Three"))
 		{
-			pressThree();
+			threePressed = true;
 		}
 	}
 	
@@ -74,20 +74,4 @@ public class Buttons implements ActionListener
 		jbutTwo.setVisible(true);
 		jbutThree.setVisible(true);
 	}
-	
-	public void pressOne()
-	{
-		onePressed = true;
-	}
-	
-	public void pressTwo()
-	{
-		twoPressed = true;
-	}
-	
-	public void pressThree()
-	{
-		threePressed = true;
-	}
-
 }

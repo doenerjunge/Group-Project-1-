@@ -642,19 +642,20 @@ public class Minimon
 	{
 		int output = 0;
 		Main.println("Choose Your Attack: " + getAttacks());
-		Main.that.show();
+		Buttons there = Main.that;
+		there.show();
 		while(true)
 		{
-			boolean one = Main.that.onePressed;
-			boolean two = Main.that.twoPressed;
-			boolean three = Main.that.threePressed;
+			boolean one = there.onePressed;
+			boolean two = there.twoPressed;
+			boolean three = there.threePressed;
 			if(one == true)
 			{
 				if(attacks.size() >= 1)
 				{
 					output = 1;
-					Main.that.onePressed = false;
-					Main.that.hide();
+					there.onePressed = false;
+					there.hide();
 					break;
 				}
 				else
@@ -662,13 +663,13 @@ public class Minimon
 					Main.println("Please press a button coresponding to an attack.");
 				}
 			}
-			else if(two == true)
+			if(two == true)
 			{
 				if(attacks.size() >= 2)
 				{
 					output = 2;
-					Main.that.twoPressed = false;
-					Main.that.hide();
+					there.twoPressed = false;
+					there.hide();
 					break;
 				}
 				else
@@ -676,13 +677,13 @@ public class Minimon
 					Main.println("Please press a button coresponding to an attack.");
 				}
 			}
-			else if(three == true)
+			if(three == true)
 			{
 				if(attacks.size() >= 3)
 				{
 					output = 3;
-					Main.that.threePressed = false;
-					Main.that.hide();
+					there.threePressed = false;
+					there.hide();
 					break;
 				}
 				else
