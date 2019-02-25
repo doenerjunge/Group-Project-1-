@@ -34,10 +34,23 @@ public class Main
 		Minimon opp = Minimon(randMin());
 		while(true)
 		{
-			mine.attack(opp);
-			if(opp.health > 0)
+			if(mine.getHealth() > 0)
 			{
-				
+				mine.attack(opp);
+			}
+			else
+			{
+				println("Your Pokemon's health is too low, retreat!");
+				break;
+			}
+			if(opp.getHealth() > 0)
+			{
+				opp.attack(mine);
+			}
+			else
+			{
+				println("You have Won!");
+				break;
 			}
 		}
 	}
