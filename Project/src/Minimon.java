@@ -646,7 +646,7 @@ public class Minimon
 		there.show();
 		while(true)
 		{
-			Main.println(there.onePressed);
+			System.out.println(there.onePressed);
 			boolean one = there.onePressed;
 			boolean two = there.twoPressed;
 			boolean three = there.threePressed;
@@ -654,6 +654,7 @@ public class Minimon
 			{
 				if(attacks.size() >= 1)
 				{
+					System.out.println(there.onePressed);
 					output = 1;
 					there.onePressed = false;
 					there.hide();
