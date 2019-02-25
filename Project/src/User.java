@@ -4,12 +4,7 @@ public class User
 	private String name;
 	private int curIndex;
 	private int numMini;
-	
-	public User()
-	{
-		
-	}
-	
+
 	public User(String name)
 	{
 		this.name = name;
@@ -18,6 +13,11 @@ public class User
 	public String getName()
 	{
 		return name;
+	}
+	
+	public Minimon[] getMiniBalls()
+	{
+		return miniBalls;
 	}
 	
 	public void addMinimon(Minimon Mini)

@@ -605,7 +605,12 @@ public class Minimon
 		return lastDamageDone;
 	}
 	
-	public String getAttacks()
+	public HashMap<String, Integer> getAttacks()
+	{
+		return attacks;
+	}
+	
+	public String getAttacksString()
 	{
 		String out = "";
 		for(int i = 0; i < attacks.size(); i++)
@@ -641,7 +646,7 @@ public class Minimon
 	public int whichAttack()
 	{
 		int output = 0;
-		Main.println("Choose Your Attack: " + getAttacks());
+		Main.println("Choose Your Attack: " + getAttacksString());
 		Buttons there = Main.that;
 		there.show();
 		while(true)
@@ -701,8 +706,8 @@ public class Minimon
 	{
 		int choiceIndex = whichAttack() - 1;
 		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
-		Main.println(name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage.");
 		other.loseHealth(dmg);
+		Main.println(owner + "'s " + name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage, leaving it at " + other.getHealth() + " health");
 	}
 	
 	public int findDmg(String atk, Minimon other)
