@@ -23,17 +23,13 @@ public class Main
 	public Main()
 	{
 		initialize();
-		println("Hello young trainer, I am Professor Git, feel free to select your first Minimon");
-		Minimon pik = new Minimon("Pikachu");
-		me.addMinimon(pik);
-		Minimon bulb = new Minimon("Bulbasaur");
-		me.addMinimon(bulb);
-		Minimon cha = new Minimon("Charmander");
-		me.addMinimon(cha);
-		Minimon squi = new Minimon("Squirtle");
-		me.addMinimon(squi);
-		Minimon pidg = new Minimon("Pidgey");
-		me.addMinimon(pidg);
+		println("Hello young trainer, I am Professor Git");
+		for(int i = 0; i < 5; i++)
+		{
+			Minimon meRand = randMini();
+			me.addMinimon(meRand);
+		}
+		println(me.getMinimon());
 		duel();
 	}
 	
@@ -81,6 +77,7 @@ public class Main
 				println("Your Pokemon have all Lost! retreat");
 				break;
 			}
+			println("");
 			me.getMiniBalls()[meMini].attack(opp.getMiniBalls()[oppMini]);
 			
 			if(opp.getMiniBalls()[oppMini].getHealth() <= 0)
@@ -93,6 +90,7 @@ public class Main
 				println("You have Won!");
 				break;
 			}
+			println("");
 			oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
 		}
 	}
@@ -169,7 +167,7 @@ public class Main
 		int nameInt = Randomizer.nextInt(1,115);
 		if(nameInt >= 1 && nameInt <= 8)
 		{
-			output = "Bulbasour";
+			output = "Bulbasaur";
 		}
 		else if(nameInt >= 9 && nameInt <= 12) 
 		{

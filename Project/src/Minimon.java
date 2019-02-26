@@ -168,6 +168,7 @@ public class Minimon
 		MACHAMP_ATTACKS.put("Low Kick", 100);
 		MACHAMP_ATTACKS.put("Counter", lastDamageDone);
 		EEVEE_ATTACKS.put("Tackle", 40);
+		EEVEE_ATTACKS.put("Scratch", 42);
 		VAPOREON_ATTACKS.put("Water Gun", 40);
 		VAPOREON_ATTACKS.put("Tackle", 40);
 		JOLTEON_ATTACKS.put("Thundershock", 40);
@@ -668,6 +669,7 @@ public class Minimon
 				else
 				{
 					Main.println("Please press a button coresponding to an attack.");
+					there.onePressed = false;
 				}
 			}
 			if(two == true)
@@ -682,6 +684,7 @@ public class Minimon
 				else
 				{
 					Main.println("Please press a button coresponding to an attack.");
+					there.twoPressed = false;
 				}
 			}
 			if(three == true)
@@ -696,6 +699,7 @@ public class Minimon
 				else
 				{
 					Main.println("Please press a button coresponding to an attack.");
+					there.threePressed = false;
 				}
 			}
 		}
