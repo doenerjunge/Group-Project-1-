@@ -1,6 +1,7 @@
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 
@@ -14,6 +15,9 @@ public class Main
 	private static JTextArea jText;
 	public static Buttons that;
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
+	private JScrollPane pane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	private static int lines = 0;
+
 	
 	public static void main(String[] args)
 	{
@@ -91,6 +95,7 @@ public class Main
 				break;
 			}
 			println("");
+			println(lines);
 			oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
 		}
 	}
@@ -123,16 +128,22 @@ public class Main
 	public static void println(String message)
 	{
 		jText.append(message + "\n");
+		lines++;
+		lineCheck();
 	}
 	
 	public static void println(boolean message)
 	{
 		jText.append(message + "\n");
+		lines++;
+		lineCheck();
 	}
 	
 	public static void println(int message)
 	{
 		jText.append(message + "\n");
+		lines++;
+		lineCheck();
 	}
 	
 	public void initialize()
@@ -152,6 +163,7 @@ public class Main
 		jText = new JTextArea();
 		jText.append( "Welcome to the world of Minimon.\n" );
 		Screen.add(jText);
+		jText.add(pane);
 		
 		
 		Screen.pack();
@@ -159,6 +171,20 @@ public class Main
 		Screen.repaint();
 		
 		new Minimon();
+	}
+	
+	private static void lineCheck()
+	{
+		if(lines >= 50)
+		{
+			codePurge();
+		}
+	}
+	
+	private static void codePurge()
+	{
+		jText.repaint();
+		lines = 0;
 	}
 	
 	public Minimon randMini()
