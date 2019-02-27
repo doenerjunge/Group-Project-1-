@@ -27,19 +27,50 @@ public class Main
 	public Main()
 	{
 		initialize();
-		println("Hello young trainer, I am Professor Git");
-		for(int i = 0; i < 5; i++)
+		println("Hello there! Welcome to the world of Minimon! (press one to continue)");
+		println("My name is Git, I am the Minimon Professor Here.");
+		println("These Minimon are fascinating creatures that people all over the \nworld have befriend");
+		println("As for you, you can have one as a pet, use it for fights, or the \nobvious answer, study them for a living!");
+		println("Here are three excellent Minimon to start your journey: \n1 Charmander, 2 Squirtle, and 3 Bulbasaur, feel free to select one");
+		int mini = getButtons(3);
+		String min = "";
+		if(mini == 1)
 		{
-			Minimon meRand = randMini();
-			me.addMinimon(meRand);
+			min += "Charmander";
 		}
-		println(me.getMinimon());
-		duel();
+		else if(mini == 2)
+		{
+			min += "Squirtle";
+		}
+		else if(mini == 3)
+		{
+			min += "Bulbasaur";
+		}
+		Minimon first = new Minimon(min);
+		me.addMinimon(first);
+		game();
 	}
 	
-	public void attack(Minimon mine)
+	public void game()
 	{
-		Minimon opp = randMini();
+		while(true)
+		{
+			println("");
+			println("What would you like to do? (one for find Minimon, two for duel)");
+			int choice = getButtons(2);
+			if(choice == 1)
+			{
+				findMinimon();
+			}
+			else if(choice == 2)
+			{
+				duel();
+			}
+		}
+	}
+	
+	public void attack(Minimon mine, Minimon opp)
+	{
 		while(true)
 		{
 			if(mine.getHealth() > 0)
@@ -62,6 +93,23 @@ public class Main
 			}
 		}
 	}
+	
+	public void findMinimon()
+	{
+		Minimon rand = randMini();
+		println(rand.getName() + " Minimon found, would you like to attack? \n(1 for yes, 2 for no)");
+		int choice = getButtons(2);
+		if(choice == 1)
+		{
+			Minimon mini = randMini();
+			
+		}
+		else
+		{
+			println("That’s okay! Come back soon");
+		}
+	}
+
 	
 	public void duel()
 	{
@@ -186,6 +234,65 @@ public class Main
 		jText.repaint();
 		lines = 0;
 	}
+	
+	public int getButtons(int ammount)
+	{
+		int output = 0;
+			Buttons there = Main.that;
+			there.show();
+			while(true)
+			{
+				System.out.println(there.onePressed);
+				boolean one = there.onePressed;
+				boolean two = there.twoPressed;
+				boolean three = there.threePressed;
+				if(one == true)
+				{
+					if(ammount >= 1)
+					{
+						System.out.println(there.onePressed);
+						output = 1;
+						there.onePressed = false;
+						there.hide();
+						break;
+					}
+					else
+					{
+						Main.println("Please press a recognised button.");
+					}
+				}
+				if(two == true)
+				{
+					if(ammount >= 2)
+					{
+						output = 2;
+						there.twoPressed = false;
+						there.hide();
+						break;
+					}
+					else
+					{
+						Main.println("Please press a recognised button.");
+					}
+				}
+				if(three == true)
+				{
+					if(ammount >= 3)
+					{
+						output = 3;
+						there.threePressed = false;
+						there.hide();
+						break;
+					}
+					else
+					{
+						Main.println("Please press a recognised button.");
+					}
+				}
+			}
+			return output;
+	}
+
 	
 	public Minimon randMini()
 	{
