@@ -17,6 +17,7 @@ public class Main
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	private JScrollPane pane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	private static int lines = 0;
+	private static int howBig = 0;
 
 	
 	public static void main(String[] args)
@@ -27,6 +28,12 @@ public class Main
 	public Main()
 	{
 		initialize();
+		begining();
+		game();
+	}
+	
+	public void begining()
+	{
 		println("Hello there! Welcome to the world of Minimon! (press one to continue)");
 		waitTill();
 		println("My name is Git, I am the Minimon Professor Here.");
@@ -53,7 +60,6 @@ public class Main
 		Minimon first = new Minimon(min);
 		me.addMinimon(first);
 		println(first.getName() + " Minimon has been added!");
-		game();
 	}
 	
 	public void waitTill()
@@ -88,6 +94,7 @@ public class Main
 	public boolean attack(Minimon mine, Minimon opp)
 	{
 		boolean win = false;
+		mine.resetHealth();
 		while(true)
 		{
 			if(mine.getHealth() > 0)
@@ -112,6 +119,7 @@ public class Main
 				break;
 			}
 		}
+		mine.resetHealth();
 		return win;
 	}
 	
@@ -122,24 +130,26 @@ public class Main
 		int choice = getButtons(2);
 		if(choice == 1)
 		{
-			println("Please Select a Minimon to attack " + rand.getName() + ".");
+			println("Please Select a Minimon to attack " + rand.getName() + ", " + me.getMinimon());
 			int choice2 = getButtons(me.getMiniBalls().length);
-			boolean win = attack(me.getMiniBalls().clone()[choice2], rand);
+			boolean win = attack(me.getMiniBalls().clone()[choice2-1], rand);
 			if(win)
 			{
-				println("Would you like to keep this Minimon? (1 for yes, 2 for no");
+				println("Would you like to keep this Minimon? (1 for yes, 2 for no)");
 				int choice3 = getButtons(2);
 				if(choice3 == 1)
 				{
 					if(me.full())
 					{
-						println("Select a Minimon to replace");
+						println("Select a Minimon to replace " + me.getMinimon());
 						int choice4 = getButtons(5);
-						me.replaceMinimon(choice4, rand);
+						me.replaceMinimon(choice4-1, rand);
+						println(rand.getName() + " Minimon added!");
 					}
 					else
 					{
 						me.addMinimon(rand);
+						println(rand.getName() + " Minimon added!");
 					}
 				}
 				else
@@ -162,54 +172,62 @@ public class Main
 	public void duel()
 	{
 		User opp = randUser();
-		println("Opponent discovered with " + opp.getMinimon() + " get ready to attack!");
-		int meMini = 0;
-		int oppMini = 0;
-		while(true)
+		println("Opponent discovered with " + opp.getMinimon() + " would you like to attack? (1 for yes, 2 for no)");
+		int choice = getButtons(2);
+		if(choice == 1)
 		{
-			if(me.getMiniBalls()[meMini].getHealth() <= 0)
+			int meMini = 0;
+			int oppMini = 0;
+			while(true)
 			{
-				println("Your " + me.getMiniBalls()[meMini].getName() + " is too weak!");
-				meMini += 1;
-			}
-			if(meMini > 4)
-			{
-				println("Your Minimon have all Lost! retreat");
-				break;
-			}
-			println("");
-			me.getMiniBalls()[meMini].attack(opp.getMiniBalls()[oppMini]);
-			
-			if(opp.getMiniBalls()[oppMini].getHealth() <= 0)
-			{
-				println("Opponents " + opp.getMiniBalls()[oppMini].getName() + " is too weak!");
-				oppMini += 1;
-			}
-			if(oppMini > 4)
-			{
-				println("You have Won!");
+				if(me.getMiniBalls()[meMini].getHealth() <= 0)
+				{
+					println("Your " + me.getMiniBalls()[meMini].getName() + " is too weak!");
+					meMini += 1;
+				}
+				if(meMini > 4)
+				{
+					println("Your Minimon have all Lost! retreat");
+					break;
+				}
+				println("");
+				me.getMiniBalls()[meMini].attack(opp.getMiniBalls()[oppMini]);
+				
+				if(opp.getMiniBalls()[oppMini].getHealth() <= 0)
+				{
+					println("Opponents " + opp.getMiniBalls()[oppMini].getName() + " is too weak!");
+					oppMini += 1;
+				}
+				if(oppMini > 4)
+				{
+					println("You have Won!");
+					for(int i = 0; i < me.getMiniBalls().length; i++)
+					{
+						me.getMiniBalls()[i].addXP(20);
+					}
+					break;
+				}
+				println("");
+				oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
 				for(int i = 0; i < me.getMiniBalls().length; i++)
 				{
-					me.getMiniBalls()[i].addXP(20);
+					me.getMiniBalls()[i].resetHealth();
 				}
-				break;
 			}
-			println("");
-			println(lines);
-			oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
-			for(int i = 0; i < me.getMiniBalls().length; i++)
-			{
-				me.getMiniBalls()[i].resetHealth();
-			}
+		}
+		else
+		{
+			println("That's okay! Come back soon");
 		}
 	}
 	
 	public User randUser()
 	{
 		User out = new User("Opponent");
-		for(int i = 0; i < 5; i++)
+		for(int i = 0; i < me.getNumMini(); i++)
 		{
 			Minimon oppRand = randMini();
+			oppRand.addXP(Randomizer.nextInt(1,5)*10);
 			out.addMinimon(oppRand);
 		}
 		return out;
@@ -226,23 +244,27 @@ public class Main
 	
 	public static void println(String message)
 	{
-		jText.append(message + "\n");
-		lines++;
+		for(int i = 0; i < message.length(); i++)
+		{
+			howBig ++;
+		}
 		lineCheck();
+		lines++;
+		jText.append(message + "\n");
 	}
 	
 	public static void println(boolean message)
 	{
-		jText.append(message + "\n");
-		lines++;
 		lineCheck();
+		lines++;
+		jText.append(message + "\n");
 	}
 	
 	public static void println(int message)
 	{
-		jText.append(message + "\n");
-		lines++;
 		lineCheck();
+		lines++;
+		jText.append(message + "\n");
 	}
 	
 	public void initialize()
@@ -281,18 +303,16 @@ public class Main
 	
 	private static void codePurge()
 	{
-		int start = 0;
-		int end = 60;
-		jText.replaceRange(null, start, end);
+		jText.replaceRange(null, 0, howBig);
 		jText.repaint();
 		lines = 0;
+		howBig = 0;
 	}
 	
 	public static int getButtons(int amount)
 	{
 		int output = 0;
 			Buttons there = Main.that;
-			there.showAll();
 			while(true)
 			{
 				System.out.println(there.onePressed);
@@ -308,7 +328,6 @@ public class Main
 						System.out.println(there.onePressed);
 						output = 1;
 						there.onePressed = false;
-						there.hide();
 						break;
 					}
 					else
@@ -323,7 +342,6 @@ public class Main
 					{
 						output = 2;
 						there.twoPressed = false;
-						there.hide();
 						break;
 					}
 					else
@@ -338,7 +356,6 @@ public class Main
 					{
 						output = 3;
 						there.threePressed = false;
-						there.hide();
 						break;
 					}
 					else
@@ -353,7 +370,6 @@ public class Main
 					{
 						output = 4;
 						there.fourPressed = false;
-						there.hide();
 						break;
 					}
 					else
@@ -368,7 +384,6 @@ public class Main
 					{
 						output = 5;
 						there.fivePressed = false;
-						there.hide();
 						break;
 					}
 					else
@@ -385,7 +400,7 @@ public class Main
 	public Minimon randMini()
 	{
 		String output = "";
-		int nameInt = Randomizer.nextInt(1,115);
+		int nameInt = Randomizer.nextInt(1,116);
 		if(nameInt >= 1 && nameInt <= 8)
 		{
 			output = "Bulbasaur";
@@ -484,7 +499,14 @@ public class Main
 		}
 		else
 		{
-			output = "Idk";
+			if(Randomizer.nextBoolean())
+			{
+				output = "Idk";
+			}
+			else
+			{
+				output = "Eevee";
+			}
 		}
 		Minimon out = new Minimon(output);
 		return out;

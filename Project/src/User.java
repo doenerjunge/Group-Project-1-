@@ -1,13 +1,16 @@
 public class User 
 {
-	private Minimon[] miniBalls = new Minimon[5];
+	private Minimon[] miniBalls;
 	private String name;
 	private int curIndex;
 	private int numMini;
 
 	public User(String name)
 	{
+		this.miniBalls = new Minimon[5];
 		this.name = name;
+		this.curIndex = 0;
+		this.numMini = 0;
 	}
 	
 	public String getName()
@@ -18,6 +21,11 @@ public class User
 	public Minimon[] getMiniBalls()
 	{
 		return miniBalls;
+	}
+	
+	public int getNumMini()
+	{
+		return numMini;
 	}
 	
 	public boolean full()

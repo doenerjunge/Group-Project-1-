@@ -59,7 +59,6 @@ public class Buttons implements ActionListener
 		jbutFour.setActionCommand("Four");
 		jbutFive.setActionCommand("Five");
 		
-		hide();
 	}
 	
 	@Override
@@ -78,30 +77,13 @@ public class Buttons implements ActionListener
 		{
 			threePressed = true;
 		}
-	}
-	
-	public void hide()
-	{
-		jbutOne.setVisible(false);
-		jbutTwo.setVisible(false);
-		jbutThree.setVisible(false);
-		jbutFour.setVisible(false);
-		jbutFive.setVisible(false);
-	}
-	
-	public void showThree()
-	{
-		jbutOne.setVisible(true);
-		jbutTwo.setVisible(true);
-		jbutThree.setVisible(true);
-	}
-	
-	public void showAll()
-	{
-		jbutOne.setVisible(true);
-		jbutTwo.setVisible(true);
-		jbutThree.setVisible(true);
-		jbutFour.setVisible(true);
-		jbutFive.setVisible(true);
+		else if(action.equals("Four"))
+		{
+			fourPressed = true;
+		}
+		else if(action.equals("Five"))
+		{
+			fivePressed = true;
+		}
 	}
 }

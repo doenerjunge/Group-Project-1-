@@ -98,7 +98,7 @@ public class Minimon
 	public static final String FLAREON_TYPE = "Fire";
 	public static final HashMap<String, Integer> FLAREON_ATTACKS = new HashMap<String, Integer>();
 	
-	public static final int MEW_HP = 100;
+	public static final int MEW_HP = 120;
 	public static final String MEW_TYPE = "Psychic";
 	public static final HashMap<String, Integer> MEW_ATTACKS = new HashMap<String, Integer>();
 	
@@ -116,7 +116,6 @@ public class Minimon
 	private String owner;
 	private int lastDamageDone;
 	private HashMap<String, Integer> attacks;
-	private static final Scanner sc = new Scanner(System.in);
 	
 	public Minimon()
 	{
@@ -177,9 +176,10 @@ public class Minimon
 		JOLTEON_ATTACKS.put("Tackle", 40);
 		FLAREON_ATTACKS.put("Ember", 40);
 		FLAREON_ATTACKS.put("Tackle", 40);
-		MEW_ATTACKS.put("Pound", 40);
-		MEW_ATTACKS.put("Confusion", 50);
+		MEW_ATTACKS.put("Pound", 120);
+		MEW_ATTACKS.put("Confusion", 200);
 		IDK_ATTACKS.put("null", Randomizer.nextInt(20, 60));
+		IDK_ATTACKS.put("syntax error", Randomizer.nextInt(10, 90));
 		miniHealth = 0;
 	}
 	
@@ -192,6 +192,20 @@ public class Minimon
 		this.nextEvo = findNextEvo(name);
 		this.attacks = findAttacks(name);
 		this.xP = 0;
+		this.evoXP = 0;
+		this.lastDamageDone = 0;
+		this.owner = "Wild";
+	}
+	
+	public Minimon(String name, int xp)
+	{
+		this.name = name;
+		this.type = findType(name);
+		this.health = findHP(name);
+		this.miniHealth = health;
+		this.nextEvo = findNextEvo(name);
+		this.attacks = findAttacks(name);
+		this.xP = xp;
 		this.evoXP = 0;
 		this.lastDamageDone = 0;
 		this.owner = "Wild";
@@ -768,75 +782,4 @@ public class Minimon
 		}
 		return effect;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public String readLine(String prompt)
-	{
-        Main.println(prompt);
-        return sc.nextLine();
-    }
-
-    public boolean readBoolean(String prompt)
-    {
-
-        while(true)
-        {
-            String input = readLine(prompt);
-
-            if(input.equalsIgnoreCase("true"))
-            {
-                return true;
-            }
-
-            if(input.equalsIgnoreCase("false"))
-            {
-                return false;
-            }
-        }
-    }
-
-    public double readDouble(String prompt)
-    {
-
-        while(true)
-        {
-            String input = readLine(prompt);
-            try 
-            {
-                double n = Double.valueOf(input).doubleValue();
-                return n;
-            } catch (NumberFormatException e)
-            {
-
-            }
-        }
-    }
-
-    // Allow the user to get an integer.
-    public int readInt(String prompt)
-    {
-
-        while(true)
-        {
-            String input = readLine(prompt);
-            try 
-            {
-                int n = Integer.parseInt(input);
-                return n;
-            } catch (NumberFormatException e)
-            {
-
-            }
-        }
-    }
 }
