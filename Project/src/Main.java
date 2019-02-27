@@ -260,7 +260,6 @@ public class Main
 		Screen.add(pnl, SpringLayout.WEST);
 		
 		jText = new JTextArea();
-		jText.append( "Welcome to the world of Minimon.\n" );
 		Screen.add(jText);
 		jText.add(pane);
 		
@@ -282,6 +281,9 @@ public class Main
 	
 	private static void codePurge()
 	{
+		int start = 0;
+		int end = 60;
+		jText.replaceRange(null, start, end);
 		jText.repaint();
 		lines = 0;
 	}
