@@ -7,7 +7,7 @@ import javax.swing.SpringLayout;
 
 public class Main
 {
-	User me = new User("Player");
+	static User me = new User("Player");
 	
 	static JFrame Screen;
 	static SpringLayout layout = new SpringLayout();
@@ -28,10 +28,14 @@ public class Main
 	{
 		initialize();
 		println("Hello there! Welcome to the world of Minimon! (press one to continue)");
+		waitTill();
 		println("My name is Git, I am the Minimon Professor Here.");
-		println("These Minimon are fascinating creatures that people all over the \nworld have befriend");
-		println("As for you, you can have one as a pet, use it for fights, or the \nobvious answer, study them for a living!");
-		println("Here are three excellent Minimon to start your journey: \n1 Charmander, 2 Squirtle, and 3 Bulbasaur, feel free to select one");
+		waitTill();
+		println("These Minimon are fascinating creatures that people all over the world have befriend");
+		waitTill();
+		println("As for you, you can have one as a pet, use it for fights, or the obvious answer, study them for a living!");
+		waitTill();
+		println("Here are three excellent Minimon to start your journey: 1 Charmander, 2 Squirtle, and 3 Bulbasaur, feel free to select one");
 		int mini = getButtons(3);
 		String min = "";
 		if(mini == 1)
@@ -48,7 +52,19 @@ public class Main
 		}
 		Minimon first = new Minimon(min);
 		me.addMinimon(first);
+		println(first.getName() + " Minimon has been added!");
 		game();
+	}
+	
+	public void waitTill()
+	{
+		while(true)
+		{
+			if(getButtons(1) == 1)
+			{
+				break;
+			}
+		}
 	}
 	
 	public void game()
@@ -69,8 +85,9 @@ public class Main
 		}
 	}
 	
-	public void attack(Minimon mine, Minimon opp)
+	public boolean attack(Minimon mine, Minimon opp)
 	{
+		boolean win = false;
 		while(true)
 		{
 			if(mine.getHealth() > 0)
@@ -79,7 +96,8 @@ public class Main
 			}
 			else
 			{
-				println("Your Pokemon's health is too low, retreat!");
+				println("Your Minimon's health is too low, retreat!");
+				win = false;
 				break;
 			}
 			if(opp.getHealth() > 0)
@@ -89,24 +107,54 @@ public class Main
 			else
 			{
 				println("You have Won!");
+				mine.addXP(20);
+				win = true;
 				break;
 			}
 		}
+		return win;
 	}
 	
 	public void findMinimon()
 	{
 		Minimon rand = randMini();
-		println(rand.getName() + " Minimon found, would you like to attack? \n(1 for yes, 2 for no)");
+		println(rand.getName() + " Minimon found, would you like to attack? (1 for yes, 2 for no)");
 		int choice = getButtons(2);
 		if(choice == 1)
 		{
-			Minimon mini = randMini();
-			
+			println("Please Select a Minimon to attack " + rand.getName() + ".");
+			int choice2 = getButtons(me.getMiniBalls().length);
+			boolean win = attack(me.getMiniBalls().clone()[choice2], rand);
+			if(win)
+			{
+				println("Would you like to keep this Minimon? (1 for yes, 2 for no");
+				int choice3 = getButtons(2);
+				if(choice3 == 1)
+				{
+					if(me.full())
+					{
+						println("Select a Minimon to replace");
+						int choice4 = getButtons(5);
+						me.replaceMinimon(choice4, rand);
+					}
+					else
+					{
+						me.addMinimon(rand);
+					}
+				}
+				else
+				{
+					println("Thanks for coming!");
+				}
+			}
+			else
+			{
+				println("Better luck next Time!");
+			}
 		}
 		else
 		{
-			println("That’s okay! Come back soon");
+			println("That's okay! Come back soon");
 		}
 	}
 
@@ -126,7 +174,7 @@ public class Main
 			}
 			if(meMini > 4)
 			{
-				println("Your Pokemon have all Lost! retreat");
+				println("Your Minimon have all Lost! retreat");
 				break;
 			}
 			println("");
@@ -140,11 +188,19 @@ public class Main
 			if(oppMini > 4)
 			{
 				println("You have Won!");
+				for(int i = 0; i < me.getMiniBalls().length; i++)
+				{
+					me.getMiniBalls()[i].addXP(20);
+				}
 				break;
 			}
 			println("");
 			println(lines);
 			oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
+			for(int i = 0; i < me.getMiniBalls().length; i++)
+			{
+				me.getMiniBalls()[i].resetHealth();
+			}
 		}
 	}
 	
@@ -166,11 +222,6 @@ public class Main
 		int dmg = opponent.findDmg(attack, you);
 		you.loseHealth(dmg);
 		Main.println("Opponent " + opponent.getName() + " attacked you with " + attack + " for " + dmg + " damage, leaving you at " + you.getHealth() + " health");
-	}
-	
-	public void evolve(Minimon p)
-	{
-		me.replaceMinimon(p, p.getNextEvo());
 	}
 	
 	public static void println(String message)
@@ -235,20 +286,22 @@ public class Main
 		lines = 0;
 	}
 	
-	public int getButtons(int ammount)
+	public static int getButtons(int amount)
 	{
 		int output = 0;
 			Buttons there = Main.that;
-			there.show();
+			there.showAll();
 			while(true)
 			{
 				System.out.println(there.onePressed);
 				boolean one = there.onePressed;
 				boolean two = there.twoPressed;
 				boolean three = there.threePressed;
+				boolean four = there.fourPressed;
+				boolean five = there.fivePressed;
 				if(one == true)
 				{
-					if(ammount >= 1)
+					if(amount >= 1)
 					{
 						System.out.println(there.onePressed);
 						output = 1;
@@ -259,11 +312,12 @@ public class Main
 					else
 					{
 						Main.println("Please press a recognised button.");
+						there.onePressed = false;
 					}
 				}
 				if(two == true)
 				{
-					if(ammount >= 2)
+					if(amount >= 2)
 					{
 						output = 2;
 						there.twoPressed = false;
@@ -273,11 +327,12 @@ public class Main
 					else
 					{
 						Main.println("Please press a recognised button.");
+						there.twoPressed = false;
 					}
 				}
 				if(three == true)
 				{
-					if(ammount >= 3)
+					if(amount >= 3)
 					{
 						output = 3;
 						there.threePressed = false;
@@ -287,6 +342,37 @@ public class Main
 					else
 					{
 						Main.println("Please press a recognised button.");
+						there.threePressed = false;
+					}
+				}
+				if(four == true)
+				{
+					if(amount >= 4)
+					{
+						output = 4;
+						there.fourPressed = false;
+						there.hide();
+						break;
+					}
+					else
+					{
+						Main.println("Please press a recognised button.");
+						there.fourPressed = false;
+					}
+				}
+				if(five == true)
+				{
+					if(amount >= 5)
+					{
+						output = 5;
+						there.fivePressed = false;
+						there.hide();
+						break;
+					}
+					else
+					{
+						Main.println("Please press a recognised button.");
+						there.fivePressed = false;
 					}
 				}
 			}

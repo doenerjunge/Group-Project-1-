@@ -20,6 +20,20 @@ public class User
 		return miniBalls;
 	}
 	
+	public boolean full()
+	{
+		boolean full = false;
+		if(curIndex == 5)
+		{
+			full = true;
+		}
+		else
+		{
+			full = false;
+		}
+		return full;
+	}
+	
 	public void addMinimon(Minimon Mini)
 	{
 		miniBalls[curIndex] = Mini;
@@ -52,19 +66,6 @@ public class User
 		return out;
 	}
 	
-	private int findIndex(Minimon p)
-	{
-		int index = 0;
-		for(int i = 0; i < numMini; i++)
-		{
-			if(miniBalls[i].getName().equals(p.getName()))
-			{
-				index = i;
-			}
-		}
-		return index;
-	}
-	
 	public void loseMinimon(int index)
 	{
 		Minimon[] tempMiniBalls = new Minimon[5];
@@ -79,10 +80,22 @@ public class User
 		miniBalls = tempMiniBalls;
 	}
 	
-	public void replaceMinimon(Minimon oldMini, String newMiniName)
+	public int findIndex(Minimon p)
 	{
-		int index = findIndex(oldMini);
-		Minimon newMini = new Minimon(newMiniName);
+		int index = 0;
+		for(int i = 0; i < numMini; i++)
+		{
+			if(miniBalls[i].getName().equals(p.getName()))
+			{
+				index = i;
+			}
+		}
+		return index;
+	}
+
+	
+	public void replaceMinimon(int index, Minimon newMini)
+	{
 		Minimon[] tempMiniBalls = new Minimon[5];
 		int stop = 0;
 		for(int i = 0; i < index; i++)

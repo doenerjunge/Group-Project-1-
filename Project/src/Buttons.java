@@ -10,35 +10,54 @@ public class Buttons implements ActionListener
 	public boolean onePressed = false;
 	public boolean twoPressed = false;
 	public boolean threePressed = false;
+	public boolean fourPressed = false;
+	public boolean fivePressed = false;
 	public static JButton jbutOne;
 	public static JButton jbutTwo;
 	public static JButton jbutThree;
+	public static JButton jbutFour;
+	public static JButton jbutFive;
 	
 	public Buttons()
 	{
 		jbutOne = new JButton("One");
 		jbutTwo = new JButton("Two");
 		jbutThree = new JButton("Three");
+		jbutFour = new JButton("Four");
+		jbutFive = new JButton("Five");
 		
 		jbutOne.setPreferredSize(new Dimension(100, 100));
 		jbutTwo.setPreferredSize(new Dimension(100, 100));
 		jbutThree.setPreferredSize(new Dimension(100, 100));
-		Main.layout.putConstraint(SpringLayout.NORTH, jbutOne, 300, SpringLayout.NORTH, Main.Screen);
-		Main.layout.putConstraint(SpringLayout.NORTH, jbutTwo, 400, SpringLayout.NORTH, Main.Screen);
-		Main.layout.putConstraint(SpringLayout.NORTH, jbutThree, 500, SpringLayout.NORTH, Main.Screen);
+		jbutFour.setPreferredSize(new Dimension(100, 100));
+		jbutFive.setPreferredSize(new Dimension(100, 100));
+		
+		Main.layout.putConstraint(SpringLayout.NORTH, jbutOne, 200, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.NORTH, jbutTwo, 300, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.NORTH, jbutThree, 400, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.NORTH, jbutFour, 500, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.NORTH, jbutFive, 600, SpringLayout.NORTH, Main.Screen);
 		Main.layout.putConstraint(SpringLayout.WEST, jbutOne, 1580, SpringLayout.NORTH, Main.Screen);
 		Main.layout.putConstraint(SpringLayout.WEST, jbutTwo, 1580, SpringLayout.NORTH, Main.Screen);
 		Main.layout.putConstraint(SpringLayout.WEST, jbutThree, 1580, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.WEST, jbutFour, 1580, SpringLayout.NORTH, Main.Screen);
+		Main.layout.putConstraint(SpringLayout.WEST, jbutFive, 1580, SpringLayout.NORTH, Main.Screen);
 		Main.Screen.add(jbutOne, SpringLayout.EAST);
 		Main.Screen.add(jbutTwo, SpringLayout.EAST);
 		Main.Screen.add(jbutThree, SpringLayout.EAST);
+		Main.Screen.add(jbutFour, SpringLayout.EAST);
+		Main.Screen.add(jbutFive, SpringLayout.EAST);
 		
 		jbutOne.addActionListener(this);
 		jbutTwo.addActionListener(this);
 		jbutThree.addActionListener(this);
+		jbutFour.addActionListener(this);
+		jbutFive.addActionListener(this);
 		jbutOne.setActionCommand("One");
 		jbutTwo.setActionCommand("Two");
 		jbutThree.setActionCommand("Three");
+		jbutFour.setActionCommand("Four");
+		jbutFive.setActionCommand("Five");
 		
 		hide();
 	}
@@ -66,12 +85,23 @@ public class Buttons implements ActionListener
 		jbutOne.setVisible(false);
 		jbutTwo.setVisible(false);
 		jbutThree.setVisible(false);
+		jbutFour.setVisible(false);
+		jbutFive.setVisible(false);
 	}
 	
-	public void show()
+	public void showThree()
 	{
 		jbutOne.setVisible(true);
 		jbutTwo.setVisible(true);
 		jbutThree.setVisible(true);
+	}
+	
+	public void showAll()
+	{
+		jbutOne.setVisible(true);
+		jbutTwo.setVisible(true);
+		jbutThree.setVisible(true);
+		jbutFour.setVisible(true);
+		jbutFive.setVisible(true);
 	}
 }

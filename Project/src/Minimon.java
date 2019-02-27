@@ -109,7 +109,9 @@ public class Minimon
 	private String name;
 	private String type;
 	private int health;
+	private final int miniHealth;
 	private int xP;
+	private int evoXP;
 	private String nextEvo;
 	private String owner;
 	private int lastDamageDone;
@@ -178,6 +180,7 @@ public class Minimon
 		MEW_ATTACKS.put("Pound", 40);
 		MEW_ATTACKS.put("Confusion", 50);
 		IDK_ATTACKS.put("null", Randomizer.nextInt(20, 60));
+		miniHealth = 0;
 	}
 	
 	public Minimon(String name)
@@ -185,9 +188,11 @@ public class Minimon
 		this.name = name;
 		this.type = findType(name);
 		this.health = findHP(name);
+		this.miniHealth = health;
 		this.nextEvo = findNextEvo(name);
 		this.attacks = findAttacks(name);
 		this.xP = 0;
+		this.evoXP = 0;
 		this.lastDamageDone = 0;
 		this.owner = "Wild";
 	}
@@ -639,76 +644,39 @@ public class Minimon
 		lastDamageDone = amount;
 	}
 	
+	public void resetHealth()
+	{
+		health = miniHealth;
+	}
+	
+	public void addXP(int amount)
+	{
+		xP += amount;
+		evoXP += amount;
+		if(evoXP >= 100)
+		{
+			evolve();
+		}
+	}
+	
 	public void setOwner(String owner)
 	{
 		this.owner = owner;
 	}
 	
-	public int whichAttack()
+	public void evolve()
 	{
-		int output = 0;
-		Main.println("Choose Your Attack: " + getAttacksString());
-		Buttons there = Main.that;
-		there.show();
-		while(true)
-		{
-			System.out.println(there.onePressed);
-			boolean one = there.onePressed;
-			boolean two = there.twoPressed;
-			boolean three = there.threePressed;
-			if(one == true)
-			{
-				if(attacks.size() >= 1)
-				{
-					System.out.println(there.onePressed);
-					output = 1;
-					there.onePressed = false;
-					there.hide();
-					break;
-				}
-				else
-				{
-					Main.println("Please press a button coresponding to an attack.");
-					there.onePressed = false;
-				}
-			}
-			if(two == true)
-			{
-				if(attacks.size() >= 2)
-				{
-					output = 2;
-					there.twoPressed = false;
-					there.hide();
-					break;
-				}
-				else
-				{
-					Main.println("Please press a button coresponding to an attack.");
-					there.twoPressed = false;
-				}
-			}
-			if(three == true)
-			{
-				if(attacks.size() >= 3)
-				{
-					output = 3;
-					there.threePressed = false;
-					there.hide();
-					break;
-				}
-				else
-				{
-					Main.println("Please press a button coresponding to an attack.");
-					there.threePressed = false;
-				}
-			}
-		}
-		return output;
+		Minimon evo = new Minimon(nextEvo);
+		Minimon me = new Minimon(name);
+		Main.me.replaceMinimon(Main.me.findIndex(me), evo);
+		Main.println(name + " Minimon has evolved to " + evo.getName());
+		evoXP = 0;
 	}
 	
 	public void attack(Minimon other)
 	{
-		int choiceIndex = whichAttack() - 1;
+		Main.println("Choose Your Attack: " + getAttacksString());
+		int choiceIndex = Main.getButtons(attacks.size()) - 1;
 		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
 		other.loseHealth(dmg);
 		Main.println(owner + "'s " + name + " attacked " + other.getName() + " with " + attacks.keySet().toArray()[choiceIndex] + " for " + dmg + " damage, leaving it at " + other.getHealth() + " health");
