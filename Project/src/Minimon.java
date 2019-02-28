@@ -641,6 +641,10 @@ public class Minimon
 	public void loseHealth(int amount)
 	{
 		health -= amount;
+		if(health < 0)
+		{
+			health = 0;
+		}
 		lastDamageDone = amount;
 	}
 	

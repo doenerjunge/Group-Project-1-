@@ -303,7 +303,7 @@ public class Main
 	
 	private static void codePurge()
 	{
-		jText.replaceRange(null, 0, howBig);
+		jText.replaceRange(null, 0, howBig-2);
 		jText.repaint();
 		lines = 0;
 		howBig = 0;
