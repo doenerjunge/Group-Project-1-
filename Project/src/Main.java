@@ -209,10 +209,10 @@ public class Main
 				}
 				println("");
 				oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
-				for(int i = 0; i < me.getMiniBalls().length; i++)
-				{
-					me.getMiniBalls()[i].resetHealth();
-				}
+			}
+			for(int i = 0; i < me.getMiniBalls().length; i++)
+			{
+				me.getMiniBalls()[i].resetHealth();
 			}
 		}
 		else
