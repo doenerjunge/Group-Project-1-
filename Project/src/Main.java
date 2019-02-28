@@ -1,4 +1,8 @@
 
+import java.awt.Dimension;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -13,11 +17,10 @@ public class Main
 	static SpringLayout layout = new SpringLayout();
 	private Panel pnl;
 	private static JTextArea jText;
+	private static JScrollPane scroll;
 	public static Buttons that;
 	ImageIcon icon = new ImageIcon("https://images.pexels.com/photos/2334/hill-meadow-tree-green.jpg?auto=compress&cs=tinysrgb&h=750&w=1260", "beautyIncarnate");
 	private JScrollPane pane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-	private static int lines = 0;
-	private static int howBig = 0;
 
 	
 	public static void main(String[] args)
@@ -244,26 +247,16 @@ public class Main
 	
 	public static void println(String message)
 	{
-		for(int i = 0; i < message.length(); i++)
-		{
-			howBig ++;
-		}
-		lineCheck();
-		lines++;
 		jText.append(message + "\n");
 	}
 	
 	public static void println(boolean message)
 	{
-		lineCheck();
-		lines++;
 		jText.append(message + "\n");
 	}
 	
 	public static void println(int message)
 	{
-		lineCheck();
-		lines++;
 		jText.append(message + "\n");
 	}
 	
@@ -285,28 +278,21 @@ public class Main
 		Screen.add(jText);
 		jText.add(pane);
 		
+		scroll = new JScrollPane(jText);
+		scroll.setPreferredSize(new Dimension(1400, 700));
+		scroll.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() 
+		{  
+	        public void adjustmentValueChanged(AdjustmentEvent e) {  
+	            e.getAdjustable().setValue(e.getAdjustable().getMaximum());  
+	        }
+	    });
+		Screen.add(scroll);
 		
 		Screen.pack();
 		Screen.revalidate();
 		Screen.repaint();
 		
 		new Minimon();
-	}
-	
-	private static void lineCheck()
-	{
-		if(lines >= 50)
-		{
-			codePurge();
-		}
-	}
-	
-	private static void codePurge()
-	{
-		jText.replaceRange(null, 0, howBig-5);
-		jText.repaint();
-		lines = 0;
-		howBig = 0;
 	}
 	
 	public static int getButtons(int amount)
