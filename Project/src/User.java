@@ -109,12 +109,15 @@ public class User
 		for(int i = 0; i < index; i++)
 		{
 			tempMiniBalls[i] = miniBalls[i];
+			tempMiniBalls[i].setOwner(name);
 			stop = i + 1;
 		}
 		tempMiniBalls[stop] = newMini;
+		tempMiniBalls[stop].setOwner(name);
 		for(int i = index + 1; i < miniBalls.length; i ++)
 		{
 			tempMiniBalls[i] = miniBalls[i];
+			tempMiniBalls[i].setOwner(name);
 		}
 		miniBalls = tempMiniBalls;
 	}
