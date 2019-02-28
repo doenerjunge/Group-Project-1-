@@ -168,7 +168,7 @@ public class Main
 		}
 	}
 
-	
+	//It's time to... d-d-d-d-d-duel!
 	public void duel()
 	{
 		User opp = randUser();
