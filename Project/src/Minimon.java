@@ -197,20 +197,6 @@ public class Minimon
 		this.owner = "Wild";
 	}
 	
-	public Minimon(String name, int xp)
-	{
-		this.name = name;
-		this.type = findType(name);
-		this.health = findHP(name);
-		this.miniHealth = health;
-		this.nextEvo = findNextEvo(name);
-		this.attacks = findAttacks(name);
-		this.xP = xp;
-		this.evoXP = 0;
-		this.lastDamageDone = 0;
-		this.owner = "Wild";
-	}
-	
 	public String findType(String name)
 	{
 		String type = "";
