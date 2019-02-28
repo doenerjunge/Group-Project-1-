@@ -272,7 +272,7 @@ public class Main
 		jText.add(pane);
 		
 		scroll = new JScrollPane(jText);
-		scroll.setPreferredSize(new Dimension(1400, 700));
+		scroll.setPreferredSize(new Dimension(1580, 987));
 		scroll.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() 
 		{  
 	        public void adjustmentValueChanged(AdjustmentEvent e) {  
