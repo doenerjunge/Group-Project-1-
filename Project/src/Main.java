@@ -210,7 +210,7 @@ public class Main
 				println("");
 				oppAttack(opp.getMiniBalls()[oppMini], me.getMiniBalls()[meMini]);
 			}
-			for(int i = 0; i < me.getMiniBalls().length; i++)
+			for(int i = 0; i < me.getNumMini(); i++)
 			{
 				me.getMiniBalls()[i].resetHealth();
 			}
