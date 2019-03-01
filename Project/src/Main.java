@@ -185,7 +185,7 @@ public class Main
 					println("Your " + me.getMiniBalls()[meMini].getName() + " is too weak!");
 					meMini += 1;
 				}
-				if(meMini > 4)
+				if(meMini > me.getNumMini()-1)
 				{
 					println("Your Minimon have all Lost! retreat");
 					break;
