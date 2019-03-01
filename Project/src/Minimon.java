@@ -679,7 +679,7 @@ public class Minimon
 	
 	public void attack(Minimon other)
 	{
-		Main.println("Choose Your Attack: " + getAttacksString());
+		Main.println("Choose Your Attack for " + name + ": " + getAttacksString());
 		int choiceIndex = Main.getButtons(attacks.size()) - 1;
 		int dmg = findDmg(attacks.keySet().toArray()[choiceIndex].toString(), other);
 		other.loseHealth(dmg);
